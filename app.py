@@ -2,7 +2,7 @@ import streamlit as st
 
 answer=None
 if 'answer' not in st.session_state:
-    st.session_state.answer="init"
+    st.session_state.answer="Super"or"Bof"
 if st.button(f'Coucou 🚗'):
   st.write("Comment était la course?")
   myCont = st.container(horizontal=True, horizontal_alignment="center")

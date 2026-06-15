@@ -10,8 +10,8 @@ with myCont:
   if st.button(f':-1: a'):
     st.write('Bof')
     test=True
-  if test:
-    st.write('Yeah')
+with st.container(horizontal=True, horizontal_alignment="center")
+    'Super' if test else 'bof'
   
   
 

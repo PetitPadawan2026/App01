@@ -18,16 +18,16 @@ with st.container(horizontal=True, horizontal_alignment="center"):
 color = st.select_slider(
     "Select a color of the rainbow",
     options=[
-        "red",
-        "orange",
-        "yellow",
-        "green",
-        "blue",
-        "indigo",
-        "violet",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
     ],
 )
-st.write("My favorite color is", color)  
+st.write("My favorite number is", color)  
   
 
     

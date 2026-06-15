@@ -9,10 +9,8 @@ if st.button(f'Coucou 🚗'):
   with myCont:
     if st.button(f':+1:'):
       st.session_state.answer="Super!"
-      st.toast(f'Answer={st.session_state.answer}', icon="😍")
     if st.button(f':-1:'):
       st.session_state.answer="Bof"
-      st.toast(f'Answer={st.session_state.answer}', icon="😍")
 st.write(st.session_state.answer)
   
     

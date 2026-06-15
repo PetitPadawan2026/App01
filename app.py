@@ -1,17 +1,17 @@
 import streamlit as st
 
 test=False
-st.write("Comment était la course?")
+st.write('Comment était la course?')
 myCont = st.container(horizontal=True, horizontal_alignment="center")
 with myCont:
   if st.button(f':+1: a'):
-    st.write("Super!")
+    st.write('Super!')
     test=True
   if st.button(f':-1: a'):
-    st.write("Bof")
+    st.write('Bof')
     test=True
   if test:
-    st.write("Yeah")
+    st.write('Yeah')
   
   
 

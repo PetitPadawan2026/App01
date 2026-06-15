@@ -15,8 +15,6 @@ if st.button(f'Coucou'):
     st.button(f':+1:', on_click=click_button(True))
     st.button(f':-1:', on_click=click_button(False))
 
-
-
 if st.session_state.clicked:
     # The message and nested widget will remain on the page
     'Super' if st.session_state.clicked else 'bof'

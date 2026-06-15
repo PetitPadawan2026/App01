@@ -1,23 +1,12 @@
 import streamlit as st
 
-if 'clicked' not in st.session_state:
-    st.session_state.clicked = False
+animal_shelter = ['cat', 'dog', 'rabbit', 'bird']
 
-def click_button(state=False):
-    st.session_state.clicked = state
+animal = st.text_input('Type an animal')
 
-myCont = st.container(horizontal=True, horizontal_alignment="center")
-
-#st.button('Click me', on_click=click_button)
-if st.button(f'Coucou'):
-  st.write("Comment était la course?")
-  with myCont:
-    st.button(f':+1:', on_click=click_button(True))
-    st.button(f':-1:', on_click=click_button(False))
-
-if st.session_state.clicked:
-    # The message and nested widget will remain on the page
-    'Super' if st.session_state.clicked else 'bof'
+if st.button('Check availability'):
+    have_it = animal.lower() in animal_shelter
+    'We have that animal!' if have_it else 'We don\'t have that animal.'
 
 if 1 == 2:
   test=False

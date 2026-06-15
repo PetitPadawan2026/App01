@@ -24,7 +24,6 @@ color = st.select_slider(
         "4",
         "5",
         "6",
-        "7",
     ],
 )
 st.write("My favorite number is", color)  

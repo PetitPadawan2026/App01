@@ -1,6 +1,6 @@
 import streamlit as st
 
-answer=""
+answer="Init"
 
 if st.button(f'Coucou 🚗'):
   st.write("Comment était la course?")

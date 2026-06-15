@@ -10,7 +10,8 @@ if st.button(f'Coucou 🚗'):
     if st.button(f':-1:'):
       st.write="Bof"
       test=True
-st.write()
+if test:
+  st.write("Yeah")
   
   
 

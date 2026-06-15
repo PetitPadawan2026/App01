@@ -1,7 +1,7 @@
 import streamlit as st
 
 answer=None
-if st.session_state("answer") is None:
+if 'answer' not in st.session_state::
     st.session_state.answer=""
 if st.button(f'Coucou 🚗'):
   st.write("Comment était la course?")

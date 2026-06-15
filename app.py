@@ -11,7 +11,7 @@ if st.button(f'Coucou 🚗'):
       st.session_state.answer="Super!"
     if st.button(f':-1:'):
       st.session_state.answer="Bof"
-    st.toast(st.session_state.answer)
+    st.toast(f'Answer={st.session_state.answer}', icon="😍")
 st.write(st.session_state.answer)
   
     

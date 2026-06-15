@@ -16,7 +16,7 @@ with st.container(horizontal=True, horizontal_alignment="center"):
 
 
 color = st.select_slider(
-    "Select a color of the rainbow",
+    "Rate the race",
     options=[
         "1",
         "2",

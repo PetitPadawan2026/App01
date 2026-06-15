@@ -8,7 +8,7 @@ if st.button(f'Coucou 🚗'):
       st.write="Super!"
     if st.button(f':-1:'):
       st.write="Bof"
-st.write()
+st.write("Super" or "Bof")
   
     
   

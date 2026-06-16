@@ -49,7 +49,13 @@ if agree:
  #if not_sure:
   #st.write ("ohhh" ,":cry:")
 
- genre = st.radio(
+ 
+
+
+def page_1():
+  st.title("Page 1")
+
+  genre = st.radio(
   ":rainbow[Are you sure ?]",
   ["I'm sure", "I'm not sure"],
  )
@@ -58,10 +64,6 @@ if agree:
   st.write("Great!")
  else:
   st.write("Please select", "I'm not sure")
-
-
-def page_1():
-  st.title("Page 1")
   
 def page_2():
   st.title("Page 2")

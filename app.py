@@ -47,10 +47,10 @@ genre = st.radio(
     ["I'm sure", "I'm not sure"],
   )
   
-  if genre == "I'm sure":
+ if genre == "I'm sure":
     st.write("Great!")
     st.balloons()
-  else:
+ else:
     st.write("Please select", "I'm sure")
     st.snow()
 

@@ -53,7 +53,7 @@ agree = st.checkbox("I agree")
 
 
 def page_1():
-  st.title("Page 1")
+  st.bottom("Page 1")
 
   genre = st.radio(
     ":rainbow[Are you sure ?]",

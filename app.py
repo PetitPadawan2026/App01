@@ -25,7 +25,7 @@ color = build_slider("Rate the Race",notes)
 
 st.write("My favorite number is", color)  
 
-cars = ["Ferrari", "Mclaren", "Porsche", "Aston Martin","Alpine", "Cadillac" , "Peugeot" , "Toyota" ]
+cars = [":red [Ferrari]", "Mclaren", "Porsche", "Aston Martin","Alpine", "Cadillac" , "Peugeot" , "Toyota" ]
 action = st.menu_button("Quel est ta voiture préféré", options=cars)
 try:
   if action is not None:

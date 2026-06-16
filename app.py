@@ -54,10 +54,10 @@ else:
 
 
 def page_1():
- st.title("***Page 1***")
+ st.write("***Page 1***")
   
 def page_2():
-  st.title("Page 2")
+  st.write("Page 2")
   
 def page_menu():
   st.title("Menu")

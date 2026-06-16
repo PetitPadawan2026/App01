@@ -5,7 +5,6 @@ test=False
 notes=["1","2","3","4","5"]
 
 def page1_cont():
-  color = build_slider("Rate the Race",notes)
   st.write('Comment était la course?')
   myCont = st.container(horizontal=True, horizontal_alignment="center")
   test=False
@@ -27,6 +26,7 @@ def build_slider(label="Demo",values=[]):
 
 
 def page2_cont():
+  color = build_slider("Rate the Race",notes)
   st.write("My favorite number is", color)  
 
   cars = [":red [Ferrari]", "Mclaren", "Porsche", "Aston Martin","Alpine", "Cadillac" , "Peugeot" , "Toyota" ]
@@ -63,8 +63,10 @@ def page_2():
 def page_menu():
   st.title("Menu")
 
-def take_rdv():
+def page_take_rdv():
   st.title("Prendre rendez-vous")
+  d = st.date_input("Quand voulait vous prendre un rendez-vous ?", datetime.date(2010, 4 , 3 ))
+  st.write("Votre rendez-vous est prévue le:", d)
 
 #pg = st.navigation([page_1, page_2])
 #pg.run()
@@ -77,14 +79,11 @@ pages = {
  "Resources": [
   st.Page(page_1, title="Page 1", icon="📰"),
   st.Page(page_2, title="Page 2", icon="📰"),
-  st.Page(take_rdv, title="Prendre rendez-vous", icon="📋"),
+  st.Page(page_take_rdv, title="Prendre rendez-vous", icon="📋"),
   st.Page("calendar.py", title="Calendrier", icon="📋"),
  ],
 }
 
-
-d = st.date_input("Quand voulait vous prendre un rendez-vous ?", datetime.date(2010, 4 , 3 ))
-st.write("Votre rendez-vous est prévue le:", d)
 
 pg = st.navigation(pages)
 pg.run()

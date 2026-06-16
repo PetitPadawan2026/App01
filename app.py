@@ -89,4 +89,4 @@ pg.run()
 d = st.date_input("Quand voulait vous prendre un rendez-vous ?", datetime.date(2010, 4 , 3 ))
 st.write("Votre rendez-vous est prévue le:", d)
 
-pip install streamlit_calendar
+

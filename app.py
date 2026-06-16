@@ -53,7 +53,7 @@ if agree:
   [":rainbow[Are you sure ?]]"
   ["I'm sure", "I'm not sure"],
  )
-
+ 
  if genre == "I'm sure":
   st.write("Great!")
  else:

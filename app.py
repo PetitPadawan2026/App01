@@ -60,7 +60,14 @@ if agree:
   st.write("Please select", "I'm not sure")
 
 
+def page_1():
+  st.title("Page 1")
+  
+def page_2():
+  st.title("Page 2")
 
+pg = st.navigation([page_1, page_2])
+pg.run()
 
 
 

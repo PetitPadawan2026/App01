@@ -47,7 +47,7 @@ if agree:
  if sure: 
   st.write ("Great!")
  if not_sure:
-  st.write ("ohhh ,":cry:")
+  st.write ("ohhh" ,":cry:")
 
 
 

@@ -1,3 +1,4 @@
+import datetime
 import streamlit as st
 
 test=False
@@ -80,4 +81,5 @@ pg = st.navigation(pages)
 pg.run()
 
 
-
+d = st.date_input("When's your birthday", datetime.date(2010,04 ,03 ))
+st.write("Your birthday is:", d)

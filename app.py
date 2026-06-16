@@ -56,11 +56,26 @@ def page_1():
 
 def page_2():
   st.title("Page 2")
+  
+def page_menu():
+  st.title("Menu")
 
 pg = st.navigation([page_1, page_2])
 pg.run()
 
 
+pages = {
+ "Menu": [
+  st.Page(page_menu, title="Menu", icon="🏠"),
+ ],
+ "Resources": [
+  st.Page(page_1, title="Page 1", icon="📰"),
+  st.Page(page_2, title="Page 2", icon="📰"),
+ ],
+}
+
+pg = st.navigation(pages)
+pg.run()
 
 
 

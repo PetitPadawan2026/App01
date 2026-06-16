@@ -30,16 +30,11 @@ st.write("My favorite number is", color)
 cars = ["Ferrari", "Mclaren", "Porsche"]
 action = st.menu_button("Quel est ta voiture préféré", options=cars)
 try:
-  st.write(f"Ta voiture préféré est => {action}")
+  if action is not None:
+    st.write(f"Ta voiture préféré est {action}")
 except:
   pass
   
-if action == "Ferrari":
-    st.write("Ta voiture préféré est Ferrari")
-elif action == "Mclaren":
-    st.write("Ta voiture préféré est Mclaren")
-elif action == "Porsche":
-    st.write("Ta voiture préféré est Porsche")
 
     
   

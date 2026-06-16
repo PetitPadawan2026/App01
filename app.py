@@ -54,11 +54,11 @@ def page2_cont():
 
 def page_1():
  st.write("***Page 1***")
- page1_cont
+ page1_cont()
   
 def page_2():
   st.write("Page 2")
-  page2_cont
+  page2_cont()
 
 def page_menu():
   st.title("Menu")

@@ -36,11 +36,6 @@ except:
 demo = build_slider("Vroums",cars)
 tab1, tab2, tab3 = st.tabs(cars)
 
-your-repository/
-├── pages/
-│   ├── page_1.py
-│   └── page_2.py
-└── your_app.py
 
 st.page_link("your_app.py", label="Home", icon="🏠")
 st.page_link("pages/page_1.py", label="Page 1", icon="1️⃣")

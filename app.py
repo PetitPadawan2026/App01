@@ -50,7 +50,7 @@ if agree:
   #st.write ("ohhh" ,":cry:")
 
  genre = st.radio(
-  [":rainbow[Are you sure ?]"],
+  ":rainbow[Are you sure ?]",
   ["I'm sure", "I'm not sure"],
  )
  

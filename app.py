@@ -39,8 +39,8 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(cars)
 
 agree = st.checkbox("I agree")
 
-#def page_1():
- # st.title("***Page 1***")
+def page_1():
+ st.title("***Page 1***")
 
   genre = st.radio(
     ":rainbow[Are you sure ?]",

@@ -41,13 +41,24 @@ tab1, tab2, tab3 = st.tabs(cars)
 agree = st.checkbox("I agree")
 
 if agree:
- st.write ("Are you sure ?")
- sure = st.checkbox ("I'm sure")
- not_sure = st.checkbox ("I'm not sure")
- if sure: 
-  st.write ("Great!")
- if not_sure:
-  st.write ("ohhh" ,":cry:")
+ #st.write ("Are you sure ?")
+ #sure = st.checkbox ("I'm sure")
+ #not_sure = st.checkbox ("I'm not sure")
+ #if sure: 
+  #st.write ("Great!")
+ #if not_sure:
+  #st.write ("ohhh" ,":cry:")
+
+sure = st.radio(
+  ": rainbow [Are you sure] ?"
+  ["I'm sure", "I'm not sure"],
+)
+
+if genre == "I'm sure":
+  st.write("Great!")
+else:
+  st.write("Please select", "I'm not sure")
+
 
 
 

@@ -26,7 +26,15 @@ color = st.select_slider(
     ],
 )
 st.write("My favorite number is", color)  
-  
+
+
+action = st.menu_button("Quel est ta voiture préféré", options=["Ferrari", "Mclaren", "Porsche"])
+if action == "Ferrari":
+    st.write("Ta voiture préféré est Ferrari")
+elif action == "Mclaren":
+    st.write("Ta voiture préféré est Mclaren")
+elif action == "Porsche":
+    st.write("Ta voiture préféré est Porsche")
 
     
   

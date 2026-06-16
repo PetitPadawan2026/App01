@@ -49,14 +49,14 @@ if agree:
  #if not_sure:
   #st.write ("ohhh" ,":cry:")
 
-genre = st.radio(
+ genre = st.radio(
   ": rainbow [Are you sure] ?"
   ["I'm sure", "I'm not sure"],
-)
+ )
 
-if genre == "I'm sure":
+ if genre == "I'm sure":
   st.write("Great!")
-else:
+ else:
   st.write("Please select", "I'm not sure")
 
 

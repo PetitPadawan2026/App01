@@ -5,6 +5,7 @@ test=False
 notes=["1","2","3","4","5"]
 
 def page1_cont():
+  color = build_slider("Rate the Race",notes)
   st.write('Comment était la course?')
   myCont = st.container(horizontal=True, horizontal_alignment="center")
   test=False
@@ -24,8 +25,6 @@ def build_slider(label="Demo",values=[]):
     options=values,
   )
 
-
-color = build_slider("Rate the Race",notes)
 
 def page2_cont():
   st.write("My favorite number is", color)  

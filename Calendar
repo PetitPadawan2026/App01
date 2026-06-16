@@ -63,4 +63,4 @@ calendar = calendar(
     custom_css=custom_css,
     key='calendar', # Assign a widget key to prevent state loss
     )
-st.write(calendar
+st.write(calendar)

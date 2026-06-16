@@ -21,10 +21,6 @@ def build_slider(label="Demo",values=[]):
   )
 
 
-#color = st.select_slider(
-#    "Rate the race",
-#    options=notes,
-#)
 color = build_slider("Rate the Race",notes)
 
 st.write("My favorite number is", color)  
@@ -39,6 +35,17 @@ except:
 
 demo = build_slider("Vroums",cars)
 tab1, tab2, tab3 = st.tabs(cars)
+
+your-repository/
+├── pages/
+│   ├── page_1.py
+│   └── page_2.py
+└── your_app.py
+
+st.page_link("your_app.py", label="Home", icon="🏠")
+st.page_link("pages/page_1.py", label="Page 1", icon="1️⃣")
+st.page_link("pages/page_2.py", label="Page 2", icon="2️⃣", disabled=True)
+st.page_link("http://www.google.com", label="Google", icon="🌎")
     
   
   

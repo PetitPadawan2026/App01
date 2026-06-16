@@ -48,7 +48,6 @@ genre = st.radio(
   
 if genre == "I'm sure":
   st.write("Great!")
-  st.balloons()
 else:
   st.write("Please select", "I'm sure")
   st.snow()

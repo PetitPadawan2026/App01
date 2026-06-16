@@ -35,7 +35,7 @@ try:
 except:
   pass
   
-
+tab1, tab2, tab3 = st.tabs(cars)
     
   
   

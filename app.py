@@ -39,11 +39,7 @@ def page2_cont():
 
   demo = build_slider("Vroums",cars)
   tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(cars)
-
-
   agree = st.checkbox("I agree")
-
-
   genre = st.radio(
       ":rainbow[Are you sure ?]",
       ["I'm sure", "I'm not sure"],
@@ -86,11 +82,11 @@ pages = {
  ],
 }
 
-pg = st.navigation(pages)
-pg.run()
-
 
 d = st.date_input("Quand voulait vous prendre un rendez-vous ?", datetime.date(2010, 4 , 3 ))
 st.write("Votre rendez-vous est prévue le:", d)
+
+pg = st.navigation(pages)
+pg.run()
 
 

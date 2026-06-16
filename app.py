@@ -63,6 +63,9 @@ def page_2():
 def page_menu():
   st.title("Menu")
 
+def take_rdv():
+  st.title("Prendre rendez-vous")
+
 #pg = st.navigation([page_1, page_2])
 #pg.run()
 
@@ -74,6 +77,7 @@ pages = {
  "Resources": [
   st.Page(page_1, title="Page 1", icon="📰"),
   st.Page(page_2, title="Page 2", icon="📰"),
+  st.Page(take_rdv, title="Prendre rendez-vous", icon="📋")
  ],
 }
 

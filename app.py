@@ -41,10 +41,7 @@ tab1, tab2, tab3 = st.tabs(cars)
 agree = st.checkbox("I agree")
 
 if agree:
- return st.select_slider(
-   label, 
-   option = values,
- ) 
+ st.write ("Great")
 
 
 

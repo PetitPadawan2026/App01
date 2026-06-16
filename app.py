@@ -36,7 +36,8 @@ try:
     st.write(f"Ta voiture préféré est {action}")
 except:
   pass
-  
+
+demo = build_slider("Vroums",cars)
 tab1, tab2, tab3 = st.tabs(cars)
     
   

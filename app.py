@@ -25,7 +25,7 @@ color = build_slider("Rate the Race",notes)
 
 st.write("My favorite number is", color)  
 
-cars = ["Ferrari", "Mclaren", "Porsche", "Aston Martin","Alpine,"Cadillac","Peugeot","Toyota"]
+cars = ["Ferrari", "Mclaren", "Porsche", "Aston Martin","Alpine", "Cadillac" , "Peugeot" , "Toyota" ]
 action = st.menu_button("Quel est ta voiture préféré", options=cars)
 try:
   if action is not None:
@@ -34,7 +34,7 @@ except:
   pass
 
 demo = build_slider("Vroums",cars)
-tab1, tab2, tab3, tab4, tab5 = st.tabs(cars)
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(cars)
 
 
 agree = st.checkbox("I agree")

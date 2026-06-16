@@ -44,10 +44,10 @@ if agree:
  st.write ("Are you sure ?")
  sure = st.checkbox ("I'm sure")
  not_sure = st.checkbox ("I'm not sure")
-  if sure: 
-    st.write ("Great!")
-   if not_sure:
-    st.write ("ohhh ,":cry:")
+ if sure: 
+  st.write ("Great!")
+ if not_sure:
+  st.write ("ohhh ,":cry:")
 
 
 

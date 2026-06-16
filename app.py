@@ -40,7 +40,7 @@ tab1, tab2, tab3 = st.tabs(cars)
 
 agree = st.checkbox("I agree")
 
-if agree:
+#if agree:
  #st.write ("Are you sure ?")
  #sure = st.checkbox ("I'm sure")
  #not_sure = st.checkbox ("I'm not sure")

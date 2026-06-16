@@ -55,15 +55,15 @@ agree = st.checkbox("I agree")
 def page_1():
   st.title("Page 1")
 
-genre = st.radio(
-  ":rainbow[Are you sure ?]",
-  ["I'm sure", "I'm not sure"],
-)
-
-if genre == "I'm sure":
-  st.write("Great!")
-else:
-  st.write("Please select", "I'm not sure")
+  genre = st.radio(
+    ":rainbow[Are you sure ?]",
+    ["I'm sure", "I'm not sure"],
+  )
+  
+  if genre == "I'm sure":
+    st.write("Great!")
+  else:
+    st.write("Please select", "I'm not sure")
 
 def page_2():
   st.title("Page 2")

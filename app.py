@@ -62,8 +62,10 @@ def page_1():
   
   if genre == "I'm sure":
     st.write("Great!")
+    st.balloons()
   else:
     st.write("Please select", "I'm sure")
+    st.snow()
 
 def page_2():
   st.title("Page 2")

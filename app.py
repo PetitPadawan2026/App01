@@ -75,7 +75,7 @@ pages = {
   st.Page(page_menu, title="Menu", icon="🏠"),
  ],
  "Resources": [
-  st.Page(page_1, title="Page 1", icon="📰"),
+  st.Page(page_1, title="Page 1", icon="📰"),N
   st.Page(page_2, title="Page 2", icon="📰"),
   st.Page(take_rdv, title="Prendre rendez-vous", icon="📋")
  ],
@@ -88,8 +88,4 @@ pg.run()
 d = st.date_input("Quand voulait vous prendre un rendez-vous ?", datetime.date(2010, 4 , 3 ))
 st.write("Votre rendez-vous est prévue le:", d)
 
-
-
-
-
-st.calendar
+st.calendar(2026)

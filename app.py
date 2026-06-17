@@ -95,7 +95,7 @@ if selected is not None:
     st.write("Merci pour votre réponse") 
 
 
-$
+
 option = st.selectbox(
     "Quel est le niveau de votre fils ?",
     ("Niveau 1", "Niveau 2", "Niveau 3", "Niveau 4", "Niveau 5"),

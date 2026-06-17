@@ -115,15 +115,15 @@ if "visibility" not in st.session_state:
 col1, col2 = st.columns(2)
 
 with col1:
-    st.checkbox("Disable radio widget", key="disabled")
-    st.checkbox("Orient radio options horizontally", key="horizontal")
+    st.checkbox("Je n'accepte pas", key="disabled")
+    st.checkbox("J'accepte", key="vertical")
 
 with col2:
     st.radio(
-        "Set label visibility 👇",
-        ["visible", "hidden", "collapsed"],
+        "Votre nage préférée 👇",
+        ["Brasse", "Crawl", "Papillon","Dos-crawlé"],
         key="visibility",
         label_visibility=st.session_state.visibility,
         disabled=st.session_state.disabled,
-        horizontal=st.session_state.horizontal,
+        horizontal=st.session_state.vertical,
     )

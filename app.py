@@ -116,14 +116,14 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.checkbox("Je n'accepte pas", key="disabled")
-    st.checkbox("J'accepte", key="vertical")
+    st.checkbox("J'accepte", key="horizontal")
 
 with col2:
     st.radio(
         "Votre nage préférée 👇",
-        ["Brasse", "Crawl", "Papillon","Dos-crawlé"],
+        ["Brasse", "Crawl", "Papillon"],
         key="visibility",
         label_visibility=st.session_state.visibility,
         disabled=st.session_state.disabled,
-        horizontal=st.session_state.vertical,
+        horizontal=st.session_state.horizontal,
     )

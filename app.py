@@ -71,7 +71,6 @@ def page_take_rdv():
 #pg = st.navigation([page_1, page_2])
 #pg.run()
 
-
 pages = {
  "Menu": [
   st.Page(page_menu, title="Menu", icon="🏠"),
@@ -84,9 +83,9 @@ pages = {
  ],
 }
 
-
 pg = st.navigation(pages)
 pg.run()
+
 
 
 sentiment_mapping = ["one", "two", "three", "four", "five"]
@@ -96,6 +95,7 @@ if selected is not None:
     st.write("Merci pour votre réponse") 
 
 
+$
 option = st.selectbox(
     "Quel est le niveau de votre fils ?",
     ("Niveau 1", "Niveau 2", "Niveau 3", "Niveau 4", "Niveau 5"),
@@ -103,6 +103,7 @@ option = st.selectbox(
     placeholder="Select contact method...",
 )
 st.write("You selected:", option)
+
 
 
 
@@ -116,13 +117,12 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.checkbox("Je n'accepte pas", key="disabled")
-    st.checkbox("J'accepte", key="horizontal")
+    st.checkbox("J'accepte")
 
 with col2:
     st.radio(
         "Votre nage préférée 👇",
         ["Brasse", "Crawl", "Papillon"],
-        key="visibility",
         label_visibility=st.session_state.visibility,
         disabled=st.session_state.disabled,
         horizontal=st.session_state.horizontal,

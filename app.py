@@ -88,9 +88,18 @@ pages = {
 pg = st.navigation(pages)
 pg.run()
 
+
 sentiment_mapping = ["one", "two", "three", "four", "five"]
 selected = st.feedback("stars")
 if selected is not None:
     st.markdown(f"You selected {sentiment_mapping[selected]} star(s).")
     st.write("Merci pour votre réponse") 
-               
+
+
+option = st.selectbox(
+    "Quel est le niveau de votre fils ?",
+    ("Niveau 1", "Niveau 2", "Niveau 3", "Niveau 4", "Niveau 5"),
+    index=None,
+    placeholder="Select contact method...",
+)
+st.write("You selected:", option)

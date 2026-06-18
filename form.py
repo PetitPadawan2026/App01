@@ -98,12 +98,12 @@ with st.form("formulaire_eleve"):
     niveau = st.text_input("Niveau *")
     with st.container(horizontal=True, horizontal_alignment="distribute"):
         submit = st.form_submit_button("Enregistrer")
-        with st.button("Annuler"):
+        #with st.button("Annuler"):
             #
-            st.empty()
-        with st.button("Enregistrer et nouveau"):
+            #st.empty()
+        #with st.button("Enregistrer et nouveau"):
             #
-            st.empty()
+            #st.empty()
 
     if submit:
     

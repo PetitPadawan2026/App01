@@ -1,4 +1,3 @@
-pip install streamlit_calendar
 import streamlit as st
 from streamlit_calendar import calendar
 

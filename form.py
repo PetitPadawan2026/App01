@@ -1,0 +1,78 @@
+import streamlit as st
+import pandas as pd
+import os
+import re
+
+st.set_page_config(
+    page_title="Formulaire d'informations personnelles",
+    page_icon="📝"
+)
+
+st.title("📝 Formulaire d'informations personnelles")
+
+# Formulaire
+with st.form("formulaire_utilisateur"):
+    nom = st.text_input("Nom *")
+    prenom = st.text_input("Prénom *")
+    telephone = st.text_input("Téléphone *")
+    adresse = st.text_area("Adresse *")
+    email = st.text_input("Adresse e-mail (optionnel)")
+
+    submit = st.form_submit_button("Enregistrer")
+
+if submit:
+
+    erreurs = []
+
+    # Vérifications des champs obligatoires
+    if not nom.strip():
+        erreurs.append("Le nom est obligatoire.")
+
+    if not prenom.strip():
+        erreurs.append("Le prénom est obligatoire.")
+
+    if not telephone.strip():
+        erreurs.append("Le numéro de téléphone est obligatoire.")
+
+    if not adresse.strip():
+        erreurs.append("L'adresse est obligatoire.")
+
+    # Vérification de l'email si renseigné
+    if email:
+        pattern_email = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+        if not re.match(pattern_email, email):
+            erreurs.append("L'adresse e-mail n'est pas valide.")
+
+    if erreurs:
+        for erreur in erreurs:
+            st.error(erreur)
+    else:
+
+        donnees = {
+            "Nom": [nom],
+            "Prénom": [prenom],
+            "Téléphone": [telephone],
+            "Adresse": [adresse],
+            "Email": [email]
+        }
+
+        df = pd.DataFrame(donnees)
+
+        fichier = "utilisateurs.csv"
+
+        if os.path.exists(fichier):
+            df.to_csv(
+                fichier,
+                mode="a",
+                header=False,
+                index=False,
+                encoding="utf-8"
+            )
+        else:
+            df.to_csv(
+                fichier,
+                index=False,
+                encoding="utf-8"
+            )
+
+        st.success("Informations enregistrées avec succès !")

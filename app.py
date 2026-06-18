@@ -95,7 +95,7 @@ if selected is not None:
     st.write("Merci pour votre réponse") 
 
 
-
+ #Sélectionner un niveau pour l'élève
 option = st.selectbox(
     "Quel est le niveau de votre fils ?",
     ("Niveau 1", "Niveau 2", "Niveau 3", "Niveau 4", "Niveau 5"),
@@ -127,3 +127,16 @@ with col2:
         disabled=st.session_state.disabled,
         horizontal=st.session_state.horizontal,
     ) 
+
+
+import pandas as pd
+from numpy.random import default_rng as rng
+
+df = pd.DataFrame(rng(0).standard_normal((20, 3)), columns=["a", "b", "c"])
+
+st.line_chart(
+    df,
+    x="a",
+    y=["b", "c"],
+    color=["#FF0000", "#0000FF"],
+)

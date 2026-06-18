@@ -92,7 +92,7 @@ st.set_page_config(
 
 st.title("📝 Informations personnelles de l'élève")
 
-# Formulaire
+# Formulaire 
 with st.form("formulaire_utilisateur"):
     prenom = st.text_input("Prénom *")
     niveau = st.text_input("Niveau *")

@@ -5,11 +5,11 @@ import time
 import re
 
 st.set_page_config(
-    page_title="Formulaire d'informations personnelles",
+    page_title=" Informations personnelles",
     page_icon="📝"
 )
 
-st.title("📝 Formulaire d'informations personnelles")
+st.title("📝 Informations personnelles")
 
 # Formulaire
 with st.form("formulaire_utilisateur"):
@@ -76,3 +76,68 @@ if submit:
             )
 
         st.success("Informations enregistrées avec succès !")
+
+
+
+
+
+
+
+
+
+st.set_page_config(
+    page_title="Informations personnelles de l'élève",
+    page_icon="📝"
+)
+
+st.title("📝 Informations personnelles de l'élève")
+
+# Formulaire
+with st.form("formulaire_utilisateur"):
+    prenom = st.text_input("Prénom *")
+    niveau = st.text_input("Niveau *")
+
+    submit = st.form_submit_button("Enregistrer")
+
+if submit:
+
+    erreurs = []
+
+    # Vérifications des champs obligatoires
+    if not prenom.strip():
+        erreurs.append("Le prénom est obligatoire.")
+
+    if not niveau.strip():
+        erreurs.append("Le niveau est obligatoire.")
+
+    if erreurs:
+        for erreur in erreurs:
+            st.error(erreur)
+    else:
+
+        donnees = {
+            "Nom": [nom],
+            "Niveau": [niveau]
+        }
+
+        df = pd.DataFrame(donnees)
+
+        fichier = "utilisateurs.csv"
+
+        if os.path.exists(fichier):
+            df.to_csv(
+                fichier,
+                mode="a",
+                header=False,
+                index=False,
+                encoding="utf-8"
+            )
+        else:
+            df.to_csv(
+                fichier,
+                index=False,
+                encoding="utf-8"
+            )
+
+        st.success("Informations enregistrées avec succès !")
+

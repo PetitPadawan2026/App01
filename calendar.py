@@ -1,5 +1,6 @@
+pip install streamlit_calendar
 import streamlit as st
-import streamlit_calendar as calendar
+from streamlit_calendar import calendar
 
 calendar_options = {
     "editable": True,

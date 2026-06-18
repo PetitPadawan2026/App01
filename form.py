@@ -96,7 +96,11 @@ lst_niveau = [f"Niveau {x}" for x in range(13)]
 # Formulaire 
 with st.form("formulaire_eleve"):
     prenom = st.text_input("Prénom *")
-    niveau = st.selectbox("Niveau *", lst_niveau, index=None, placeholder="Sélectionner un niveau...")
+    niveau = st.selectbox("Niveau *",
+                          lst_niveau, 
+                          index=None,
+                          placeholder=
+                          "Sélectionner un niveau...")
 
     st.write("Niveau sélectionné:", niveau)
     submit = st.form_submit_button("Enregistrer")

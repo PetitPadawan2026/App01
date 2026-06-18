@@ -15,7 +15,7 @@ with st.form("formulaire_utilisateur"):
     nom = st.text_input("Nom *")
     prenom = st.text_input("Prénom *")
     telephone = st.text_input("Téléphone *")
-    adresse = st.text_area("Adresse *")
+    adresse = st.text_area("Adresse (optionnel)")
     email = st.text_input("Adresse e-mail (optionnel)")
 
     submit = st.form_submit_button("Enregistrer")
@@ -33,9 +33,6 @@ if submit:
 
     if not telephone.strip():
         erreurs.append("Le numéro de téléphone est obligatoire.")
-
-    if not adresse.strip():
-        erreurs.append("L'adresse est obligatoire.")
 
     # Vérification de l'email si renseigné
     if email:

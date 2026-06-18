@@ -51,3 +51,13 @@ if selected is not None:
     st.write("Merci pour votre réponse") 
 
 )
+
+
+ #Sélectionner un niveau pour l'élève
+option = st.selectbox(
+    "Quel est le niveau de votre fils ?",
+    ("Niveau 1", "Niveau 2", "Niveau 3", "Niveau 4", "Niveau 5"),
+    index=None,
+    placeholder="Select contact method...",
+)
+st.write("You selected:", option)

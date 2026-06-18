@@ -34,7 +34,6 @@ pages = {
  "Resources": [
   st.Page(page_1, title="Page 1", icon="📰"),
   st.Page(page_2, title="Page 2", icon="📰"),
-  st.Page(page_take_rdv, title="Prendre rendez-vous", icon="📋"),
   st.Page("calendar.py", title="Calendrier", icon="📋"),
   st.Page("form.py", title="Formulaires", icon="📋"),
  ],

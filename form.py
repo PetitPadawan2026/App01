@@ -35,7 +35,7 @@ if submit:
         erreurs.append("Le numéro de téléphone est obligatoire.")
 
     if not adresse.strip():
-        erreurs.append("L'adresse est optionnel.")
+        erreurs.append("L'adresse est obligatoire.")
 
     # Vérification de l'email si renseigné
     if email:

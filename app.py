@@ -25,8 +25,6 @@ def build_slider(label="Demo",values=[]):
   )
 
 
-def page2_cont():
-
 def page_1():
  st.write("***Page 1***")
  page1_cont()

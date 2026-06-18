@@ -96,8 +96,14 @@ st.title("📝 Informations personnelles de l'élève")
 with st.form("formulaire_eleve"):
     prenom = st.text_input("Prénom *")
     niveau = st.text_input("Niveau *")
-
-    submit = st.form_submit_button("Enregistrer")
+    with st.container(horizontal=True, horizontal_alignment="distribute"):
+        with st.button("Annuler"):
+            #
+            st.empty()
+        with st.button("Enregistrer et nouveau"):
+            #
+            st.empty()
+        submit = st.form_submit_button("Enregistrer")
 
 if submit:
 

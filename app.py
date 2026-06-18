@@ -104,30 +104,3 @@ with col2:
         horizontal=st.session_state.horizontal,
     ) 
 
-
-import pandas as pd
-from numpy.random import default_rng as rng
-
-df = pd.DataFrame(rng(0).standard_normal((20, 3)), columns=["a", "b", "c"])
-
-st.line_chart(
-    df,
-    x="a",
-    y=["b", "c"],
-    color=["#FF0000", "#0000FF"],
-)
-
-
-import pandas as pd
-from numpy.random import default_rng as rng
-
-df = pd.DataFrame(rng(0).standard_normal((20, 3)), columns=["a", "b", "c"])
-
-st.line_chart(
-    df,
-    x="a",
-    y=["b", "c"],
-    color=["#FF0000", "#0000FF"],
-)
-
-

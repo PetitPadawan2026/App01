@@ -31,7 +31,6 @@ def page_1():
   
 def page_2():
   st.write("Page 2")
-  page2_cont()
 
 def page_menu():
   st.title("Menu")

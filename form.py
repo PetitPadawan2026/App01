@@ -12,7 +12,7 @@ st.set_page_config(
 st.title("📝 Informations personnelles")
 
 # Formulaire
-with st.form("formulaire_utilisateur"):
+with st.form("formulaire_parent"):
     nom = st.text_input("Nom *")
     prenom = st.text_input("Prénom *")
     telephone = st.text_input("Téléphone *")
@@ -93,7 +93,7 @@ st.set_page_config(
 st.title("📝 Informations personnelles de l'élève")
 
 # Formulaire 
-with st.form("formulaire_utilisateur"):
+with st.form("formulaire_eleve"):
     prenom = st.text_input("Prénom *")
     niveau = st.text_input("Niveau *")
 

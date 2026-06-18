@@ -14,113 +14,37 @@ st.title("📝 Informations personnelles")
 tab1, tab2 = st.tabs(["Parent", "Enfant"])
 with tab1:
     st.subheader("Données de contact")
-with tab2:
-    st.subheader("Données enfant")
+    # Formulaire
+    with st.form("formulaire_parent"):
+        nom = st.text_input("Nom *")
+        prenom = st.text_input("Prénom *")
+        telephone = st.text_input("Téléphone *")
+        adresse = st.text_area("Adresse (optionnel)")
+        email = st.text_input("Adresse e-mail (optionnel)")
     
-# Formulaire
-with st.form("formulaire_parent"):
-    nom = st.text_input("Nom *")
-    prenom = st.text_input("Prénom *")
-    telephone = st.text_input("Téléphone *")
-    adresse = st.text_area("Adresse (optionnel)")
-    email = st.text_input("Adresse e-mail (optionnel)")
-
-    submit = st.form_submit_button("Enregistrer")
-
-if submit:
-
-    erreurs = []
-
-    # Vérifications des champs obligatoires
-    if not nom.strip():
-        erreurs.append("Le nom est obligatoire.")
-        st.toast("Le Nom est obligatoire", icon="❗")
-        time.sleep(0.5)
-
-    if not prenom.strip():
-        erreurs.append("Le prénom est obligatoire.")
-
-    if not telephone.strip():
-        erreurs.append("Le numéro de téléphone est obligatoire.")
-
-    # Vérification de l'email si renseigné
-    if email:
-        pattern_email = r'^[\w\.-]+@[\w\.-]+\.\w+$'
-        if not re.match(pattern_email, email):
-            erreurs.append("L'adresse e-mail n'est pas valide.")
-
-    if erreurs:
-        for erreur in erreurs:
-            st.error(erreur)
-    else:
-
-        donnees = {
-            "Nom": [nom],
-            "Prénom": [prenom],
-            "Téléphone": [telephone],
-            "Adresse": [adresse],
-            "Email": [email]
-        }
-
-        df = pd.DataFrame(donnees)
-
-        fichier = "utilisateurs.csv"
-
-        if os.path.exists(fichier):
-            df.to_csv(
-                fichier,
-                mode="a",
-                header=False,
-                index=False,
-                encoding="utf-8"
-            )
-        else:
-            df.to_csv(
-                fichier,
-                index=False,
-                encoding="utf-8"
-            )
-
-        st.success("Informations enregistrées avec succès !")
-
-
-
-
-
-
-
-
-
-st.set_page_config(
-    page_title="Informations personnelles de l'élève",
-    page_icon="📝"
-)
-
-st.title("📝 Informations personnelles de l'élève")
-
-lst_niveau = [f"Niveau {x}" for x in range(13)] 
-# Formulaire 
-with st.form("formulaire_eleve"):
-    prenom = st.text_input("Prénom *")
-    niveau = st.selectbox("Niveau *",
-                          lst_niveau, 
-                          index=None,
-                          placeholder=
-                          "Sélectionner un niveau...")
-
-    st.write("Niveau sélectionné:", niveau)
-    submit = st.form_submit_button("Enregistrer")
-
+        submit = st.form_submit_button("Enregistrer")
+    
     if submit:
     
         erreurs = []
     
         # Vérifications des champs obligatoires
+        if not nom.strip():
+            erreurs.append("Le nom est obligatoire.")
+            st.toast("Le Nom est obligatoire", icon="❗")
+            time.sleep(0.5)
+    
         if not prenom.strip():
             erreurs.append("Le prénom est obligatoire.")
     
-        if not niveau.strip():
-            erreurs.append("Le niveau est obligatoire.")
+        if not telephone.strip():
+            erreurs.append("Le numéro de téléphone est obligatoire.")
+    
+        # Vérification de l'email si renseigné
+        if email:
+            pattern_email = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+            if not re.match(pattern_email, email):
+                erreurs.append("L'adresse e-mail n'est pas valide.")
     
         if erreurs:
             for erreur in erreurs:
@@ -129,7 +53,10 @@ with st.form("formulaire_eleve"):
     
             donnees = {
                 "Nom": [nom],
-                "Niveau": [niveau]
+                "Prénom": [prenom],
+                "Téléphone": [telephone],
+                "Adresse": [adresse],
+                "Email": [email]
             }
     
             df = pd.DataFrame(donnees)
@@ -152,4 +79,65 @@ with st.form("formulaire_eleve"):
                 )
     
             st.success("Informations enregistrées avec succès !")
+
+
+
+
+with tab2:
+    st.subheader("Données enfant")
+
+    lst_niveau = [f"Niveau {x}" for x in range(13)] 
+    # Formulaire 
+    with st.form("formulaire_eleve"):
+        prenom = st.text_input("Prénom *")
+        niveau = st.selectbox("Niveau *",
+                              lst_niveau, 
+                              index=None,
+                              placeholder=
+                              "Sélectionner un niveau...")
+    
+        st.write("Niveau sélectionné:", niveau)
+        submit = st.form_submit_button("Enregistrer")
+    
+        if submit:
+        
+            erreurs = []
+        
+            # Vérifications des champs obligatoires
+            if not prenom.strip():
+                erreurs.append("Le prénom est obligatoire.")
+        
+            if not niveau.strip():
+                erreurs.append("Le niveau est obligatoire.")
+        
+            if erreurs:
+                for erreur in erreurs:
+                    st.error(erreur)
+            else:
+        
+                donnees = {
+                    "Nom": [nom],
+                    "Niveau": [niveau]
+                }
+        
+                df = pd.DataFrame(donnees)
+        
+                fichier = "utilisateurs.csv"
+        
+                if os.path.exists(fichier):
+                    df.to_csv(
+                        fichier,
+                        mode="a",
+                        header=False,
+                        index=False,
+                        encoding="utf-8"
+                    )
+                else:
+                    df.to_csv(
+                        fichier,
+                        index=False,
+                        encoding="utf-8"
+                    )
+        
+                st.success("Informations enregistrées avec succès !")
 

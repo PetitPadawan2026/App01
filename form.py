@@ -28,8 +28,7 @@ if submit:
     # Vérifications des champs obligatoires
     if not nom.strip():
         erreurs.append("Le nom est obligatoire.")
-        #st.toast("Le Nom est obligatoire", icon"❗")
-        st.toast("Le Nom est obligatoire", icon="🎉")
+        st.toast("Le Nom est obligatoire", icon="❗")
         time.sleep(0.5)
 
     if not prenom.strip():

@@ -18,19 +18,6 @@ def page1_cont():
   with st.container(horizontal=True, horizontal_alignment="center"):
       'Super' if test else 'bof'
 
- import pandas as pd
-from numpy.random import default_rng as rng
-
-df = pd.DataFrame(rng(0).standard_normal((20, 3)), columns=["a", "b", "c"])
-
-st.line_chart(
-    df,
-    x="a",
-    y=["b", "c"],
-    color=["#FF0000", "#0000FF"],
-)
-
-
 def build_slider(label="Demo",values=[]):
   return st.select_slider(
     label,
@@ -140,6 +127,19 @@ with col2:
         disabled=st.session_state.disabled,
         horizontal=st.session_state.horizontal,
     ) 
+
+
+import pandas as pd
+from numpy.random import default_rng as rng
+
+df = pd.DataFrame(rng(0).standard_normal((20, 3)), columns=["a", "b", "c"])
+
+st.line_chart(
+    df,
+    x="a",
+    y=["b", "c"],
+    color=["#FF0000", "#0000FF"],
+)
 
 
 import pandas as pd

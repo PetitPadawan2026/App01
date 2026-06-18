@@ -11,6 +11,12 @@ st.set_page_config(
 
 st.title("📝 Informations personnelles")
 
+tab1, tab2 = st.tabs(["Parent", "Enfant"])
+with tab1:
+    st.subheader("Données de contact")
+with tab2:
+    st.subheader("Données enfant")
+    
 # Formulaire
 with st.form("formulaire_parent"):
     nom = st.text_input("Nom *")

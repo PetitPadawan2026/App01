@@ -1,4 +1,10 @@
- color = build_slider("Rate the Race",notes)
+import streamlit as st
+import pandas as pd
+from numpy.random import default_rng as rng
+
+
+
+color = build_slider("Rate the Race",notes)
   st.write("My favorite number is", color)  
 
   cars = [":red [Ferrari]", "Mclaren", "Porsche", "Aston Martin","Alpine", "Cadillac" , "Peugeot" , "Toyota" ]
@@ -24,8 +30,8 @@
     st.snow()
 
 
-import pandas as pd
-from numpy.random import default_rng as rng
+
+
 
 df = pd.DataFrame(rng(0).standard_normal((20, 3)), columns=["a", "b", "c"])
 
@@ -34,4 +40,14 @@ st.line_chart(
     x="a",
     y=["b", "c"],
     color=["#FF0000", "#0000FF"],
+
+
+ 
+
+sentiment_mapping = ["one", "two", "three", "four", "five"]
+selected = st.feedback("stars")
+if selected is not None:
+    st.markdown(f"You selected {sentiment_mapping[selected]} star(s).")
+    st.write("Merci pour votre réponse") 
+
 )

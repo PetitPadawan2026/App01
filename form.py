@@ -92,10 +92,20 @@ st.set_page_config(
 
 st.title("📝 Informations personnelles de l'élève")
 
+lst_niveau = [x for x in range(13)] 
 # Formulaire 
 with st.form("formulaire_eleve"):
     prenom = st.text_input("Prénom *")
-    niveau = st.text_input("Niveau *")
+        #niveau = st.text_input("Niveau *")
+        niveau = st.selectbox(
+        "Niveau *",
+        lst_niveau, 
+        index=None,
+        placeholder="Sélectionner un niveau...",
+)
+
+st.write("Niveau sélectionner:", option)
+    
     with st.container(horizontal=True, horizontal_alignment="distribute"):
         submit = st.form_submit_button("Enregistrer")
         #with st.button("Annuler"):

@@ -22,10 +22,7 @@ def page_2():
 def page_menu():
   st.title("Menu")
 
-def page_take_rdv():
-  st.title("Prendre rendez-vous")
-  d = st.date_input("Quand voulait vous prendre un rendez-vous ?", datetime.date(2010, 4 , 3 ))
-  st.write("Votre rendez-vous est prévue le:", d)
+
 
 #pg = st.navigation([page_1, page_2])
 #pg.run()

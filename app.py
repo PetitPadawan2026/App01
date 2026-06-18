@@ -14,7 +14,6 @@ def build_slider(label="Demo",values=[]):
 
 def page_1():
  st.write("***Page 1***")
- page1_cont()
   
 def page_2():
   st.write("Page 2")

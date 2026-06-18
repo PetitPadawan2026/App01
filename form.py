@@ -26,7 +26,7 @@ if submit:
 
     # Vérifications des champs obligatoires
     if not nom.strip():
-        erreurs.append("Le nom est obligatoire.")
+        st.toast("Le Nom est obligatoire")
 
     if not prenom.strip():
         erreurs.append("Le prénom est obligatoire.")

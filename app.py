@@ -4,19 +4,6 @@ import datetime
 test=False
 notes=["1","2","3","4","5"]
 
-def page1_cont():
-  st.write('Comment était la course?')
-  myCont = st.container(horizontal=True, horizontal_alignment="center")
-  test=False
-  with myCont:
-    if st.button(f':+1:'):
-      #st.write('Super!')  
-      test=True
-    if st.button(f':-1:'):
-      #st.write('Bof')
-      test=False
-  with st.container(horizontal=True, horizontal_alignment="center"):
-      'Super' if test else 'bof'
 
 def build_slider(label="Demo",values=[]):
   return st.select_slider(

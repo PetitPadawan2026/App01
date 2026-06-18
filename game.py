@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 from numpy.random import default_rng as rng
 
+def page_take_rdv():
+  st.title("Prendre rendez-vous")
+  d = st.date_input("Quand voulait vous prendre un rendez-vous ?", datetime.date(2010, 4 , 3 ))
+  st.write("Votre rendez-vous est prévue le:", d)
+
 
 def page1_cont():
   st.write('Comment était la course?')

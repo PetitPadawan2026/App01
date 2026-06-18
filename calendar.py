@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit import calendar
+import streamlit_calendar as calendar
 
 calendar_options = {
     "editable": True,

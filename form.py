@@ -97,53 +97,53 @@ with st.form("formulaire_eleve"):
     prenom = st.text_input("Prénom *")
     niveau = st.text_input("Niveau *")
     with st.container(horizontal=True, horizontal_alignment="distribute"):
+        submit = st.form_submit_button("Enregistrer")
         with st.button("Annuler"):
             #
             st.empty()
         with st.button("Enregistrer et nouveau"):
             #
             st.empty()
-        submit = st.form_submit_button("Enregistrer")
 
-if submit:
-
-    erreurs = []
-
-    # Vérifications des champs obligatoires
-    if not prenom.strip():
-        erreurs.append("Le prénom est obligatoire.")
-
-    if not niveau.strip():
-        erreurs.append("Le niveau est obligatoire.")
-
-    if erreurs:
-        for erreur in erreurs:
-            st.error(erreur)
-    else:
-
-        donnees = {
-            "Nom": [nom],
-            "Niveau": [niveau]
-        }
-
-        df = pd.DataFrame(donnees)
-
-        fichier = "utilisateurs.csv"
-
-        if os.path.exists(fichier):
-            df.to_csv(
-                fichier,
-                mode="a",
-                header=False,
-                index=False,
-                encoding="utf-8"
-            )
+    if submit:
+    
+        erreurs = []
+    
+        # Vérifications des champs obligatoires
+        if not prenom.strip():
+            erreurs.append("Le prénom est obligatoire.")
+    
+        if not niveau.strip():
+            erreurs.append("Le niveau est obligatoire.")
+    
+        if erreurs:
+            for erreur in erreurs:
+                st.error(erreur)
         else:
-            df.to_csv(
-                fichier,
-                index=False,
-                encoding="utf-8"
-            )
-
-        st.success("Informations enregistrées avec succès !")
+    
+            donnees = {
+                "Nom": [nom],
+                "Niveau": [niveau]
+            }
+    
+            df = pd.DataFrame(donnees)
+    
+            fichier = "utilisateurs.csv"
+    
+            if os.path.exists(fichier):
+                df.to_csv(
+                    fichier,
+                    mode="a",
+                    header=False,
+                    index=False,
+                    encoding="utf-8"
+                )
+            else:
+                df.to_csv(
+                    fichier,
+                    index=False,
+                    encoding="utf-8"
+                )
+    
+            st.success("Informations enregistrées avec succès !")
 

@@ -92,7 +92,7 @@ st.set_page_config(
 
 st.title("📝 Informations personnelles de l'élève")
 
-lst_niveau = ["Niveau " + x for x in range(13)] 
+lst_niveau = [f"Niveau {x}" for x in range(13)] 
 # Formulaire 
 with st.form("formulaire_eleve"):
     prenom = st.text_input("Prénom *")

@@ -16,12 +16,12 @@ calendar_options = {
     "resourceGroupField": "cours",
     "resources": [
         {"id": "a", "cours": "Eleve A", "title": "Cours A"},
-        {"id": "a", "cours": "Eleve A", "title": "Cours B"},
+        {"id": "a2", "cours": "Eleve A", "title": "Cours B"},
         {"id": "b", "cours": "Eleve B", "title": "Cours A"},
-        {"id": "b", "cours": "Eleve B", "title": "Cours B"},
+        {"id": "b2", "cours": "Eleve B", "title": "Cours B"},
         {"id": "c", "cours": "Eleve C", "title": "Cours A"},
     ],
-}
+} 
 calendar_events = [
     { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
     { "title": "Event 2", "start": "2026-06-17T07:30:00", "end": "2026-06-17T10:30:00", "resourceId": "b", },

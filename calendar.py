@@ -1,7 +1,24 @@
 import streamlit as st
 import calendar
 from streamlit_calendar import calendar
- 
+import pyodbc
+import pandas as pd
+
+
+calendar_resources = [
+        {"id": "a", "cours": "Eleve A", "title": "Cours A"},
+        {"id": "a2", "cours": "Eleve A", "title": "Cours B"},
+        {"id": "b", "cours": "Eleve B", "title": "Cours A"},
+        {"id": "b2", "cours": "Eleve B", "title": "Cours B"},
+        {"id": "c", "cours": "Eleve C", "title": "Cours A"},
+    ]
+
+calendar_events = [
+    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
+    { "title": "Event 2", "start": "2026-06-17T07:30:00", "end": "2026-06-17T10:30:00", "resourceId": "b", },
+    { "title": "Event 3", "start": "2026-06-18T10:40:00", "end": "2026-06-19T12:30:00", "resourceId": "c", },
+    { "title": "Event 4", "start": "2026-06-18T10:40:00", "end": "2026-06-19T12:30:00", "resourceId": "a2", }
+] 
 calendar_options = {
     "editable": True,
     "selectable": True,
@@ -10,24 +27,13 @@ calendar_options = {
         "center": "title",
         "right": "resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth",
     },
-    "slotMinTime": "06:00:00",
+    "slotMinTime": "08:00:00",
     "slotMaxTime": "20:00:00",
     "initialView": "resourceTimelineDay",
     "resourceGroupField": "cours",
-    "resources": [
-        {"id": "a", "cours": "Eleve A", "title": "Cours A"},
-        {"id": "a2", "cours": "Eleve A", "title": "Cours B"},
-        {"id": "b", "cours": "Eleve B", "title": "Cours A"},
-        {"id": "b2", "cours": "Eleve B", "title": "Cours B"},
-        {"id": "c", "cours": "Eleve C", "title": "Cours A"},
-    ],
+    "resources": calendar_resources,
 } 
-calendar_events = [
-    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
-    { "title": "Event 2", "start": "2026-06-17T07:30:00", "end": "2026-06-17T10:30:00", "resourceId": "b", },
-    { "title": "Event 3", "start": "2026-06-18T10:40:00", "end": "2026-06-19T12:30:00", "resourceId": "c", },
-    { "title": "Event 4", "start": "2026-06-18T10:40:00", "end": "2026-06-19T12:30:00", "resourceId": "a2", }
-]
+
 custom_css="""
     .fc-event-past {
         opacity: 0.8;

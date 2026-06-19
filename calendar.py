@@ -11,14 +11,14 @@ calendar_options = {
         "right": "resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth",
     },
     "slotMinTime": "06:00:00",
-    "slotMaxTime": "18:00:00",
+    "slotMaxTime": "20:00:00",
     "initialView": "resourceTimelineDay",
-    "resourceGroupField": "building",
+    "resourceGroupField": "cours",
     "resources": [
-        {"id": "a", "building": "Building A", "title": "Building A"},
-        {"id": "b", "building": "Building A", "title": "Building B"},
-        {"id": "c", "building": "Building B", "title": "Building C"},
-        {"id": "d", "building": "Building B", "title": "Building D"},
+        {"id": "a", "cours": "Cours A", "title": "Cours A"},
+        {"id": "b", "cours": "Cours A", "title": "Cours B"},
+        {"id": "c", "cours": "Cours B", "title": "Cours C"},
+        {"id": "d", "cours": "Cours B", "title": "Cours D"},
 
     ],
 }

@@ -17,9 +17,6 @@ calendar_options = {
     "resources": [
         {"id": "a", "cours": "Cours A", "title": "Cours A"},
         {"id": "b", "cours": "Cours A", "title": "Cours B"},
-        {"id": "c", "cours": "Cours B", "title": "Cours C"},
-        {"id": "d", "cours": "Cours B", "title": "Cours D"},
-
     ],
 }
 calendar_events = [

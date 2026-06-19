@@ -25,7 +25,7 @@ def logout():
 role = st.session_state.role
 
 logout_page = st.Page(logout, title="Log out", icon=":material/logout:")
-settings = st.Page(f"{base_path}settings.py", title="Settings", icon=":material/settings:")
+settings = st.Page("settings.py", title="Settings", icon=":material/settings:")
 request_1 = st.Page(
     "inc_request_1.py",
     title="Request 1",

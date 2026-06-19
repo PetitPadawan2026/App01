@@ -15,8 +15,8 @@ calendar_options = {
     "initialView": "resourceTimelineDay",
     "resourceGroupField": "cours",
     "resources": [
-        {"id": "a", "cours": "Cours A", "title": "Cours A"},
-        {"id": "b", "cours": "Cours A", "title": "Cours B"},
+        {"id": "a", "cours": "Eleve A", "title": "Cours A"},
+        {"id": "b", "cours": "Eleve B", "title": "Cours B"},
     ],
 }
 calendar_events = [

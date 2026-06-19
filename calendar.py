@@ -49,13 +49,13 @@ custom_css="""
     }
 """
 
-calendar = calendar(
+state = calendar(
     events=calendar_events,
     options=calendar_options,
     custom_css=custom_css,
     key='calendar', # Assign a widget key to prevent state loss
     )
-st.write(calendar)
+st.write(state)
 
 
 

@@ -51,8 +51,6 @@ color = build_slider("Rate the Race",notes)
 
 
 
-
-
 df = pd.DataFrame(rng(0).standard_normal((20, 3)), columns=["a", "b", "c"])
 
 st.line_chart(

@@ -58,7 +58,7 @@ admin_pages = [admin_1, admin_2]
 
 
 
-st.title("Request manager")
+st.header("Request manager")
 
 page_dict = {}
 

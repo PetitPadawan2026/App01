@@ -77,4 +77,4 @@ else:
 
 pg.run()
 
-st.sidebar.write(f"Logged as {st.session_state.role})
+st.sidebar.write(f"Logged as {st.session_state.role}")

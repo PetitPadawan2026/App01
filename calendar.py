@@ -16,7 +16,10 @@ calendar_options = {
     "resourceGroupField": "cours",
     "resources": [
         {"id": "a", "cours": "Eleve A", "title": "Cours A"},
-        {"id": "b", "cours": "Eleve B", "title": "Cours B"},
+        {"id": "a", "cours": "Eleve A", "title": "Cours B"},
+        {"id": "b", "cours": "Eleve B", "title": "Cours A"},
+        {"id": "a", "cours": "Eleve B", "title": "Cours B"},
+        {"id": "a", "cours": "Eleve C", "title": "Cours A"},
     ],
 }
 calendar_events = [

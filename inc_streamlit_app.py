@@ -5,7 +5,7 @@ if "role" not in st.session_state:
 
 ROLES = [None, "Requester", "Responder", "Admin"]
 
-def login():*
+def login():
   st.header("Log in")
 role = st.selectbox("Choose your role", ROLES)
 

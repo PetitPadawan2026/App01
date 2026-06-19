@@ -1,5 +1,7 @@
 import streamlit as st
 
+base_path='Demo_login/'
+
 if "role" not in st.session_state:
     st.session_state.role = None
 
@@ -23,7 +25,7 @@ def logout():
 role = st.session_state.role
 
 logout_page = st.Page(logout, title="Log out", icon=":material/logout:")
-settings = st.Page("settings.py", title="Settings", icon=":material/settings:")
+settings = st.Page(f"{base_path}settings.py", title="Settings", icon=":material/settings:")
 request_1 = st.Page(
     "inc_request_1.py",
     title="Request 1",
@@ -31,24 +33,24 @@ request_1 = st.Page(
     default=(role == "Requester"),
 )
 request_2 = st.Page(
-    "inc_request_2.py", title="Request 2", icon=":material/bug_report:"
+    f"{base_path}inc_request_2.py", title="Request 2", icon=":material/bug_report:"
 )
 respond_1 = st.Page(
-    "inc_respond_1.py",
+    f"{base_path}inc_respond_1.py",
     title="Respond 1",
     icon=":material/healing:",
     default=(role == "Responder"),
 )
 respond_2 = st.Page(
-    "inc_respond_2.py", title="Respond 2", icon=":material/handyman:"
+    f"{base_path}inc_respond_2.py", title="Respond 2", icon=":material/handyman:"
 )
 admin_1 = st.Page(
-    "inc_admin_1.py",
+    f"{base_path}inc_admin_1.py",
     title="Admin 1",
     icon=":material/person_add:",
     default=(role == "Admin"),
 )
-admin_2 = st.Page("inc_admin_2.py", title="Admin 2", icon=":material/security:")
+admin_2 = st.Page(f"{base_path}inc_admin_2.py", title="Admin 2", icon=":material/security:")
 
 account_pages = [logout_page, settings]
 request_pages = [request_1, request_2]

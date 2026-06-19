@@ -56,3 +56,39 @@ calendar = calendar(
     key='calendar', # Assign a widget key to prevent state loss
     )
 st.write(calendar)
+
+
+
+
+
+
+sql_conn = None
+
+if state.get("sql_conn") is not None:
+    sql_conn = st.session_state["sql_conn"]
+
+def show_table(tabname):
+    if st.session_state["sql_conn"] is not None:
+        query = "SELECT * FROM " + tabname
+        df = pd.read_sql(query, st.session_state["sql_conn"])
+        return st.dataframe(df)
+
+cxn_status = False
+with st.spinner("Connecting database...", show_time=True):
+    try:
+        sql_conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+st.secrets["Server"]+';DATABASE='+st.secrets["Database"]+';Uid='+st.secrets["Uid"]+';Pwd='+st.secrets["Pwd"])
+        #;Trusted_Connection=yes'
+        cxn_status = True
+        st.session_state["sql_conn"] = sql_conn
+    except pyodbc.Error as ex:
+        st.error('Database unreachable', icon="🚨")
+        cxn_status = False
+        st.session_state["sql_conn"] = None
+
+if cxn_status:
+    query = "SELECT * FROM t_niveau"
+    df = pd.read_sql(query, sql_conn)
+    st.dataframe(df)
+
+    show_table('t_parent')
+

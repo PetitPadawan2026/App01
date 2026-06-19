@@ -61,7 +61,7 @@ admin_pages = [admin_1, admin_2]
 st.header("Request manager")
 
 page_dict = {}
-st.write(st.session_state.role)
+st.write(st.session_state.role,role)
 if st.session_state.role in ["Requester", "Admin"]:
     page_dict["Request"] = request_pages
 if st.session_state.role in ["Responder", "Admin"]:

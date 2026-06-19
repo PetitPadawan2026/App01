@@ -2,8 +2,6 @@ import streamlit as st
 
 st.title("Request manager")
 
-st.logo("images/horizontal_blue.png", icon_image="images/icon_blue.png")
-
 page_dict = {}
 
 if st.session_state.role in ["Requester", "Admin"]:

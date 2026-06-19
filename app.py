@@ -13,10 +13,10 @@ def build_slider(label="Demo",values=[]):
 
 
 def page_1():
- st.write("Page 1")
+ st.header("Page 1")
   
 def page_2():
-  st.write("Page 2")
+  st.header("Page 2")
 
 def page_menu():
   st.title("Menu")

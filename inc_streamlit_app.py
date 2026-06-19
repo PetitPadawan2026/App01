@@ -23,32 +23,32 @@ logout_page = st.Page(logout, title="Log out", icon=":material/logout:")
 settings = st.Page("settings.py", title="Settings", icon=":material/settings:")
 
 request_1 = st.Page(
-    "request/inc_request_1.py",
+    "inc_request_1.py",
     title="Request 1",
     icon=":material/help:",
     default=(role == "Requester"),
 )
 request_2 = st.Page(
-    "request/inc_request_2.py", title="Request 2", icon=":material/bug_report:"
+    "inc_request_2.py", title="Request 2", icon=":material/bug_report:"
 )
 
 respond_1 = st.Page(
-    "respond/inc_respond_1.py",
+    "inc_respond_1.py",
     title="Respond 1",
     icon=":material/healing:",
     default=(role == "Responder"),
 )
 respond_2 = st.Page(
-    "respond/inc_respond_2.py", title="Respond 2", icon=":material/handyman:"
+    "inc_respond_2.py", title="Respond 2", icon=":material/handyman:"
 )
 
 admin_1 = st.Page(
-    "admin/inc_admin_1.py",
+    "inc_admin_1.py",
     title="Admin 1",
     icon=":material/person_add:",
     default=(role == "Admin"),
 )
-admin_2 = st.Page("admin/inc_admin_2.py", title="Admin 2", icon=":material/security:")
+admin_2 = st.Page("inc_admin_2.py", title="Admin 2", icon=":material/security:")
 
 
 account_pages = [logout_page, settings]

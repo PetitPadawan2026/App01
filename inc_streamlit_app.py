@@ -10,10 +10,6 @@ def login():
     st.header("Log in")
     role = st.selectbox("Choose your role", ROLES)
 
-if st.button("Log in"):
-    st.session_state.role = role
-    st.rerun()
-
 def logout():
   st.session_state.role = None
   st.rerun()
@@ -58,7 +54,9 @@ admin_pages = [admin_1, admin_2]
 
 
 
-st.header("Request manager")
+if st.button("Log in"):
+    st.session_state.role = role
+    st.rerun()
 
 page_dict = {}
 st.write(st.session_state.role,role)

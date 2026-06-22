@@ -8,13 +8,20 @@ def vote():
     in_item = st.text_input("item")
     in_reason = st.text_input("reason")
 
-    if st.button("Ok"):
-        st.session_state.vote=("A voté")
-        st.session_state.vote = {"item": in_item, "reason": in_reason}
-        st.rerun()
-    if st.button("Annuler"):
-        st.session_state.vote=None
-        st.rerun()
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        if st.button("Ok"):
+            st.session_state.vote=("A voté")
+            st.session_state.vote = {"item": in_item, 
+                                    "reason": in_reason}
+            st.rerun()
+
+    with col3:
+        if st.button("Annuler"):
+            st.session_state.vote=None
+            st.rerun()
+            
     #if st.button("Submit"):
         #st.session_state.vote = {"item": item, "reason": reason}
         

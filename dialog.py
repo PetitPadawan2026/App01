@@ -34,6 +34,14 @@ def book_event():
     in_title = make_select_niveau()
     #in_title = make_select_niveau("Niveau")
 
+erreurs = []
+
+# Vérifications des champs obligatoires
+if not in_name.strip():
+    erreurs.append("Le Nom de l'élève est obligatoire.")
+    st.toast("Le Nom est obligatoire", icon="❗")
+    time.sleep(0.5)
+
 
     col1, col2, col3 = st.columns(3)
 

@@ -5,21 +5,32 @@ ret_event = {}
 if "book_event" not in st.session_state:
     st.session_state.book_event=None
 
+option=st.selectbox(
+    ("Niveau Menhir, Niveau Débutant, Niveau Confirmé, Niveau Expert, Niveau Megalodon")
+
+)
+
+
 def init_event():
-    ret_event = {
+    base_event = {
         "allDay": False,
         "title": "",            #"Event 1",
         "start": "",            #"2026-06-16T08:30:00+02:00",
         "end": "",              #"2026-06-16T10:30:00+02:00",
         "resourceId":"",        #"a"
     } 
-    return ret_event   
+    return base_event   
+
+def calc_heure_fin(heure_debut):
+    heure_fin = heure_debut
+    return heure_fin
 
 @st.dialog("Choisissez")
 def book_event():
     in_name = st.text_input("Nom de l'élève")
     in_date = st.datetime_input("Date")
-    
+    in_title = st.selectbox("Titre")
+
 
     col1, col2, col3 = st.columns(3)
 
@@ -30,15 +41,12 @@ def book_event():
                 "allDay": False,
                 "title": "Cours démo",
                 "start": in_date,   
-                "end": in_date, # +heure de fin
+                "end": calc_heure_fin(in_date),
                 "resourceId":in_name
             }
 
-            
             st.session_state.book_event=ret_event
-            #st.session_state.book_event=("A voté")
-            #st.session_state.book_event = {"Nom de l'élève": in_name, 
-                    #                "Date": in_date,}
+
             st.rerun()
 
     with col3:

@@ -5,6 +5,16 @@ ret_event = {}
 if "book_event" not in st.session_state:
     st.session_state.book_event=None
 
+def init_event():
+    ret_event = {
+        "allDay": False,
+        "title": "",            #"Event 1",
+        "start": "",            #"2026-06-16T08:30:00+02:00",
+        "end": "",              #"2026-06-16T10:30:00+02:00",
+        "resourceId":"",        #"a"
+    } 
+    return ret_event   
+
 @st.dialog("Choisissez")
 def book_event():
     in_name = st.text_input("Nom de l'élève")
@@ -15,14 +25,7 @@ def book_event():
 
     with col1:
         if st.button("Ok"):
-            ret_event = {
-                "allDay": False,
-                "title": "",            #"Event 1",
-                "start": "",            #"2026-06-16T08:30:00+02:00",
-                "end": "",              #"2026-06-16T10:30:00+02:00",
-                "resourceId":"",        #"a"
-            }
-
+            ret_event = init_event()
             ret_event = {
                 "allDay": False,
                 "title": "Cours démo",

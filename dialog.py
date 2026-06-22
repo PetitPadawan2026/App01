@@ -74,9 +74,8 @@ if st.session_state.book_event is not None:
     st.write("Choix:")
     st.dataframe(st.session_state.book_event)
 
-def show_magic_button():
-    if st.button("Sélectionner un cours"):
-        book_event()
+if st.button("Sélectionner un cours"):
+    book_event()
 
 
 

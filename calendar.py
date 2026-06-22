@@ -1,10 +1,14 @@
 import streamlit as st
 import calendar
 from streamlit_calendar import calendar
+import datetime
+import time
 import pyodbc
 import pandas as pd
 
-from dialog import *
+ret_event = {}
+if "book_event" not in st.session_state:
+    st.session_state.book_event=None
 
 calendar_resources = [
         {"id": "a", "cours": "Eleve A", "title": "Cours A"},
@@ -58,13 +62,78 @@ state = calendar(
     )
 st.write(state)
 
-show_magic_button()
+# ===============================================================================================================
+# Form 1
+
+def make_select_niveau(txt_label="Test"):
+    return st.selectbox(
+        txt_label,
+        ("Niveau Débutant", "Niveau Confirmé", "Niveau Expert"),
+        label_visibility="hidden" if txt_label == "Test" else "visible"
+    )
 
 
+def init_event():
+    base_event = {
+        "allDay": False,
+        "title": "",            #"Event 1",
+        "start": "",            #"2026-06-16T08:30:00+02:00",
+        "end": "",              #"2026-06-16T10:30:00+02:00",
+        "resourceId":"",        #"a"
+    } 
+    return base_event   
+
+def calc_heure_fin(heure_debut):
+    heure_fin = heure_debut
+    return heure_fin
+
+@st.dialog("Choisissez")
+def book_event():
+    in_name = st.text_input("Nom de l'élève")
+    in_date = st.datetime_input("Date")
+    in_title = make_select_niveau()
+    #in_title = make_select_niveau("Niveau")
+
+    erreurs = []
+
+    # Vérifications des champs obligatoires
+    if not in_name.strip():
+        erreurs.append("Le Nom de l'élève est obligatoire.")
+        st.toast("Le Nom est obligatoire", icon="❗")
+        time.sleep(0.5)
 
 
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            if st.button("Ok"):
+                ret_event = init_event()
+                ret_event = {
+                    "allDay": False,
+                    "title": "Cours démo",
+                    "start": in_date,   
+                    "end": calc_heure_fin(in_date),
+                    "resourceId":in_name
+                }
+
+                st.session_state.book_event=ret_event
+
+                st.rerun()
+
+        with col3:
+            if st.button("Annuler"):
+                st.session_state.book_event=None
+                st.rerun()
+
+if st.session_state.book_event is not None:
+    st.write("Choix:")
+    st.dataframe(st.session_state.book_event)
+
+if st.button("Sélectionner un cours"):
+    book_event()
+
+# ===============================================================================================================
 #base de donnée
-
 sql_conn = None
 
 if state.get("sql_conn") is not None:
@@ -94,4 +163,5 @@ if cxn_status:
     st.dataframe(df)
 
     show_table('t_parent')
+
 

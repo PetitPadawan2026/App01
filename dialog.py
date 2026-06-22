@@ -23,6 +23,9 @@ if st.session_state.vote is not None:
     st.write("Choix:")
     st.dataframe(st.session_state.vote)
 
+if st.button("Sélectionner un cours"):
+    def vote()
+    
 
 #else:
 #   f"You voted for {st.session_state.vote['item']} because {st.session_state.vote['reason']}"    

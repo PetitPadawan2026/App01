@@ -90,11 +90,12 @@ def init_event():
 
 def datetime_to_str(date_in):
     st.toast(date_in)
-    st.toast(date_in.strftime("%y-%m-%d %H:%M:%S"))
-    return date_in.strftime("%y-%m-%d %H:%M:%S")
+    ret_val=date_in.strftime("%Y-%m-%d %H:%M:%S")
+    st.toast(ret_val)
+    return ret_val
 
 def calc_heure_fin(heure_debut):
-    heure_fin = heure_debut
+    heure_fin = heure_debut 
     return datetime_to_str(heure_fin)
 
 @st.dialog("Choisissez")
@@ -121,8 +122,8 @@ def book_event():
             ret_event = {
                 "allDay": False,
                 "title": "Cours démo",
-                "start": datetime_to_str(in_date),   
-                "end": calc_heure_fin(in_date),
+                "start": str(in_date),   
+                "end": str(calc_heure_fin(in_date)),
                 "resourceId":in_name
             }
 

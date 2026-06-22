@@ -95,8 +95,8 @@ def datetime_to_str(date_in):
     return ret_val
 
 def calc_heure_fin(heure_debut):
-    heure_fin = heure_debut 
-    return datetime_to_str(heure_fin)
+    heure_fin = heure_debut
+    return str(heure_fin)
 
 @st.dialog("Choisissez")
 def book_event():

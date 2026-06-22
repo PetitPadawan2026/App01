@@ -5,8 +5,6 @@ import datetime
 import time
 import pyodbc
 import pandas as pd
-from datetime import datetime
-from datetime import time
 from datetime import timedelta
 
 

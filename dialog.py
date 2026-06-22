@@ -5,7 +5,7 @@ ret_event = {}
 if "book_event" not in st.session_state:
     st.session_state.book_event=None
 
-option=st.selectbox(
+options=st.selectbox(
     ("Niveau Menhir, Niveau Débutant, Niveau Confirmé, Niveau Expert, Niveau Megalodon")
 
 )

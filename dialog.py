@@ -22,7 +22,7 @@ def book_event():
                 "end": "",              #"2026-06-16T10:30:00+02:00",
                 "resourceId":"",        #"a"
             }
-            ret_event.title = "Cours démo" 
+            ret_event("title") = "Cours démo" 
             ret_event.start = in_date  
             ret_event.end = in_date # +heure de fin
             ret_event.resourceId = in_name

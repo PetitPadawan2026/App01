@@ -89,6 +89,8 @@ def init_event():
     return base_event   
 
 def datetime_to_str(date_in):
+    st.toast(date_in)
+    st.toast(date_in.strftime("%y-%m-%d %H:%M:%S"))
     return date_in.strftime("%y-%m-%d %H:%M:%S")
 
 def calc_heure_fin(heure_debut):

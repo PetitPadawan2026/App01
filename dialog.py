@@ -5,11 +5,11 @@ ret_event = {}
 if "book_event" not in st.session_state:
     st.session_state.book_event=None
 
-def make_selecy_niveau():
+def make_select_niveau(txt_label="Test"):
     return st.selectbox(
-        "Niveau",
+        txt_label,
         ("Niveau Débutant", "Niveau Confirmé", "Niveau Expert"),
-        label_visibility="hidden"
+        label_visibility="hidden" if txt_label == "Test" else "visible"
     )
 
 
@@ -31,7 +31,7 @@ def calc_heure_fin(heure_debut):
 def book_event():
     in_name = st.text_input("Nom de l'élève")
     in_date = st.datetime_input("Date")
-    in_title = make_selecy_niveau()
+    in_title = make_select_niveau("Niveau")
 
 
     col1, col2, col3 = st.columns(3)

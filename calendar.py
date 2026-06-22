@@ -5,6 +5,10 @@ import datetime
 import time
 import pyodbc
 import pandas as pd
+from datetime import datetime
+from datetime import time
+from datetime import timedelta
+
 
 ret_event = {}
 if "book_event" not in st.session_state:
@@ -96,7 +100,9 @@ def datetime_to_str(date_in):
 
 def calc_heure_fin(heure_debut):
     heure_fin = heure_debut
-    return str(heure_fin)
+    time_gap = 45 #minutes
+    heure_fin = heure_debut + timedelta(minutes=time_gap)
+
 
 @st.dialog("Choisissez")
 def book_event():

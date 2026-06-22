@@ -31,7 +31,8 @@ def calc_heure_fin(heure_debut):
 def book_event():
     in_name = st.text_input("Nom de l'élève")
     in_date = st.datetime_input("Date")
-    in_title = make_select_niveau("Niveau")
+    in_title = make_select_niveau()
+    #in_title = make_select_niveau("Niveau")
 
 
     col1, col2, col3 = st.columns(3)

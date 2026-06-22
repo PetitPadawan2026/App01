@@ -6,8 +6,9 @@ if "book_event" not in st.session_state:
     st.session_state.book_event=None
 
 options=st.selectbox(
-    ("Niveau Menhir, Niveau Débutant, Niveau Confirmé, Niveau Expert, Niveau Megalodon")
-
+    "Niveau",
+    ("Niveau Menhir, Niveau Débutant, Niveau Confirmé, Niveau Expert, Niveau Megalodon"),
+    label_visibility="hidden"
 )
 
 

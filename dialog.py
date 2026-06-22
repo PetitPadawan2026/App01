@@ -8,7 +8,7 @@ if "book_event" not in st.session_state:
 def make_selecy_niveau():
     return st.selectbox(
         "Niveau",
-        ("Niveau Menhir, Niveau Débutant, Niveau Confirmé, Niveau Expert, Niveau Megalodon"),
+        ("Niveau Menhir", "Niveau Débutant", "Niveau Confirmé", "Niveau Expert", "Niveau Megalodon"),
         label_visibility="hidden"
     )
 

@@ -24,7 +24,7 @@ if st.session_state.vote is not None:
     st.dataframe(st.session_state.vote)
 
 if st.button("Sélectionner un cours"):
-    def vote()
+    vote()
     
 
 #else:

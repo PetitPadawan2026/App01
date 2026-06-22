@@ -24,6 +24,8 @@ calendar_events = [
     { "title": "Event 3", "start": "2026-06-18T10:40:00", "end": "2026-06-19T12:30:00", "resourceId": "c", },
     { "title": "Event 4", "start": "2026-06-18T10:40:00", "end": "2026-06-19T12:30:00", "resourceId": "a2", }
 ] 
+calendar_events.append(st.session_state.book_event)
+
 calendar_options = {
     "editable": True,
     "selectable": True,

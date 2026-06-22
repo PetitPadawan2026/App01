@@ -1,6 +1,6 @@
 import streamlit as st
 
-@st.dialog("")
+@st.dialog("Choisissez")
 def vote(item):
     st.write(f"Why is {item} your favorite?")
     if st.button("Ok"):

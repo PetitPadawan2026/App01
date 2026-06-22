@@ -27,7 +27,7 @@ calendar_events = [
 
 if st.session_state.book_event is not None:
     #calendar_events.append(st.session_state.book_event)
-    calendar_events += [st.session_state.book_event]
+    calendar_events = st.session_state.book_event
 
 calendar_options = {
     "editable": True,

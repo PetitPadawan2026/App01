@@ -34,36 +34,36 @@ def book_event():
     in_title = make_select_niveau()
     #in_title = make_select_niveau("Niveau")
 
-erreurs = []
+    erreurs = []
 
-# Vérifications des champs obligatoires
-if not in_name.strip():
-    erreurs.append("Le Nom de l'élève est obligatoire.")
-    st.toast("Le Nom est obligatoire", icon="❗")
-    time.sleep(0.5)
+    # Vérifications des champs obligatoires
+    if not in_name.strip():
+        erreurs.append("Le Nom de l'élève est obligatoire.")
+        st.toast("Le Nom est obligatoire", icon="❗")
+        time.sleep(0.5)
 
 
-    col1, col2, col3 = st.columns(3)
+        col1, col2, col3 = st.columns(3)
 
-    with col1:
-        if st.button("Ok"):
-            ret_event = init_event()
-            ret_event = {
-                "allDay": False,
-                "title": "Cours démo",
-                "start": in_date,   
-                "end": calc_heure_fin(in_date),
-                "resourceId":in_name
-            }
+        with col1:
+            if st.button("Ok"):
+                ret_event = init_event()
+                ret_event = {
+                    "allDay": False,
+                    "title": "Cours démo",
+                    "start": in_date,   
+                    "end": calc_heure_fin(in_date),
+                    "resourceId":in_name
+                }
 
-            st.session_state.book_event=ret_event
+                st.session_state.book_event=ret_event
 
-            st.rerun()
+                st.rerun()
 
-    with col3:
-        if st.button("Annuler"):
-            st.session_state.book_event=None
-            st.rerun()
+        with col3:
+            if st.button("Annuler"):
+                st.session_state.book_event=None
+                st.rerun()
 
     #if st.button("Submit"):
         #st.session_state.book_event = {"item": item, "reason": reason}

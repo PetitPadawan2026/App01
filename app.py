@@ -1,4 +1,4 @@
-import streamlit as st
+eimport streamlit as st
 import datetime
  
 test=False
@@ -21,8 +21,6 @@ def page_2():
 def page_menu():
   st.title("Menu")
 
-
-
 #pg = st.navigation([page_1, page_2])
 #pg.run()
 
@@ -43,9 +41,3 @@ pages = {
 
 pg = st.navigation(pages)
 pg.run()
-
-
-
-
-
-

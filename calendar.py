@@ -116,8 +116,8 @@ def book_event():
             ret_event = {
                 "allDay": False,
                 "title": "Cours démo",
-                "start": in_date,   
-                "end": calc_heure_fin(in_date),
+                "start": in_date.strftime("%m/%d/%Y, %H:%M:%S"),   
+                "end": calc_heure_fin(in_date).strftime("%m/%d/%Y, %H:%M:%S"),
                 "resourceId":in_name
             }
 

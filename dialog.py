@@ -22,10 +22,15 @@ def book_event():
                 "end": "",              #"2026-06-16T10:30:00+02:00",
                 "resourceId":"",        #"a"
             }
-            ret_event("title") = "Cours démo" 
-            ret_event.start = in_date  
-            ret_event.end = in_date # +heure de fin
-            ret_event.resourceId = in_name
+
+            ret_event = {
+                "allDay": False,
+                "title": "Cours démo",
+                "start": in_date,   
+                "end": in_date, # +heure de fin
+                "resourceId":in_name
+            }
+
             
             st.session_state.book_event=ret_event
             #st.session_state.book_event=("A voté")

@@ -1,6 +1,7 @@
 import streamlit as st
 import datetime
 
+ret_event = {}
 if "book_event" not in st.session_state:
     st.session_state.book_event=None
 
@@ -10,14 +11,26 @@ def book_event():
     in_date = st.datetime_input("Date")
     
 
-
     col1, col2, col3 = st.columns(3)
 
     with col1:
         if st.button("Ok"):
-            st.session_state.book_event=("A voté")
-            st.session_state.book_event = {"Nom de l'élève": in_name, 
-                                    "Date": in_date,}
+            ret_event = {
+                "allDay": False,
+                "title": "",            #"Event 1",
+                "start": "",            #"2026-06-16T08:30:00+02:00",
+                "end": "",              #"2026-06-16T10:30:00+02:00",
+                "resourceId":"",        #"a"
+            }
+            ret_event.title = "Cours démo" 
+            ret_event.start = in_date  
+            ret_event.end = in_date # +heure de fin
+            ret_event.resourceId = in_name
+            
+            st.session_state.book_event=ret_event
+            #st.session_state.book_event=("A voté")
+            #st.session_state.book_event = {"Nom de l'élève": in_name, 
+                    #                "Date": in_date,}
             st.rerun()
 
     with col3:
@@ -35,14 +48,26 @@ if st.session_state.book_event is not None:
 
 if st.button("Sélectionner un cours"):
     book_event()
-    
 
-   # "Choisissez la date et l'heure",
-    #datetime.datetime(2025, 11, 19, 16, 45),
+
+
+
+
+
+
+
+
+
+#{
+#   "allDay":false,
+#   "title":"Event 1",
+#   "start":"2026-06-16T08:30:00+02:00",
+#    "end":"2026-06-16T10:30:00+02:00",
+#   "resourceId":"a"
+# }
+
+
 
 #st.write("Choisi", event_time)
-
-#{"allDay":false,"title":"Event 1","start":"2026-06-16T08:30:00+02:00","end":"2026-06-16T10:30:00+02:00","resourceId":"a"}
-
 #else:
 #   f"You voted for {st.session_state.vote['item']} because {st.session_state.vote['reason']}"    

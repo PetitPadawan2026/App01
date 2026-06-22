@@ -4,6 +4,7 @@ from streamlit_calendar import calendar
 import pyodbc
 import pandas as pd
 
+from dialog import *
 
 calendar_resources = [
         {"id": "a", "cours": "Eleve A", "title": "Cours A"},

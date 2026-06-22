@@ -58,6 +58,7 @@ state = calendar(
     )
 st.write(state)
 
+show_magic_button()
 
 
 

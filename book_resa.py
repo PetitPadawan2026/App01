@@ -123,9 +123,6 @@ def book_room():
                             selected_room = room_choice.split(" (Capacity: ")[0]
                             description = st.text_input("Enter Meeting Title:")
                             name = st.text_input("Enter your Name:")
-                            #email = st.text_input("Enter your Email:")
-                            #if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
-                                #st.warning("Please enter a valid email address.")
                                 return
                             
                             if not name or not description:

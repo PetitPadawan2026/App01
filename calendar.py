@@ -6,6 +6,7 @@ import time
 import pyodbc
 import pandas as pd
 from datetime import timedelta
+import uuid
 
 
 ret_event = {}
@@ -71,6 +72,14 @@ st.write(state)
 
 # ===============================================================================================================
 # Form 1
+
+if not st.session_state.get("CalKey", False):
+        st.session_state["CalKey"] = str(uuid.uuid4())
+
+
+
+
+
 
 def make_select_niveau(txt_label="Test"):
     return st.selectbox(

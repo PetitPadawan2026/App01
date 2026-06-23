@@ -8,11 +8,17 @@ import pandas as pd
 from datetime import timedelta
 import uuid
 
-
+# ===============================================================================================================
+# Variables de session
 ret_event = {}
 if "book_event" not in st.session_state:
     st.session_state.book_event=None
 
+if not st.session_state.get("calendar", False):
+        st.session_state["calendar"] = str(uuid.uuid4())
+
+# ===============================================================================================================
+# Options / params calendrier
 calendar_resources = [
         {"id": "a", "cours": "Eleve A", "title": "Cours A"},
         {"id": "a2", "cours": "Eleve A", "title": "Cours B"},
@@ -60,9 +66,10 @@ custom_css="""
     .fc-toolbar-title {
         font-size: 2rem;
     }
-    """,
-key=st.session_state["Calendar"],
-
+    """
+    
+# ===============================================================================================================
+# Calendrier Widget
 state = calendar(
     events=calendar_events,
     options=calendar_options,
@@ -70,17 +77,18 @@ state = calendar(
     key='calendar', # Assign a widget key to prevent state loss
     )
 st.write(state)
+#key=st.session_state["calendar"],
+
+
+event_to_add = { "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-06-23T14:30:00", "resourceId": "a2", }
 
 # ===============================================================================================================
 # Form 1
-
-if not st.session_state.get("CalKey", False):
-        st.session_state["CalKey"] = str(uuid.uuid4())
-
-
-
-
-
+if st.button("add event"):
+    calendar_events.append(event_to_add)
+    st.write(calendar_events)
+    st.session_state["calendar"] = str(uuid.uuid4())
+    st.rerun()
 
 def make_select_niveau(txt_label="Test"):
     return st.selectbox(

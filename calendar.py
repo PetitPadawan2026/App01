@@ -87,8 +87,11 @@ event_to_add = { "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-0
 if st.button("add event"):
     calendar_events.append(event_to_add)
     st.write(calendar_events)
-    st.session_state["calendar"] = str(uuid.uuid4())
-    st.rerun()
+    calendar.addEvent( event_to_add ) #, [source] ??? 
+    calendar.render()
+    if 1 == 2:
+        st.session_state["calendar"] = str(uuid.uuid4())
+        st.rerun()
 
 def make_select_niveau(txt_label="Test"):
     return st.selectbox(

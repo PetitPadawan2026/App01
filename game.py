@@ -102,3 +102,8 @@ with col2:
         horizontal=st.session_state.horizontal,
     ) 
 
+
+#import re
+#email = st.text_input("Enter your Email:")
+#if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+    #st.warning("Please enter a valid email address.")

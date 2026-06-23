@@ -35,7 +35,7 @@ pages = {
  "Inscription / Connexion": [
   st.Page("inc_streamlit_app.py", title="**Login**", icon="📌"),
   st.Page("form.py", title="Formulaires", icon="📋"),
-  st.Page("calendar.py", title="Calendrier", icon="📋"),
+  st.Page("calendar2.py", title="Calendrier", icon="📋"),
   st.Page("dialog.py", title="Dialogue", icon="📋"),
  ],
 }

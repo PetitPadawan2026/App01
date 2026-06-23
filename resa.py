@@ -80,8 +80,8 @@ def generate_random_booking_id():
 
 cours_duree = int(60) #en minutes
 heures_ouvrees = {
-    "debut": 8,     #08h00:00
-    "fin": 19       #19h00:00
+    "debut": 9,     #08h00:00
+    "fin": 20       #19h00:00
 }
 room_capacity = {
     "Room 1": 6,
@@ -95,9 +95,10 @@ def book_room():
     st.header("Book a Room")
     date = st.date_input("Select the Date:", min_value=current_time_ist.date(),value=None)
     current_date = current_time_ist.date()
+    heure_dernier_cours = int((datetime.time(heures_ouvrees["fin"],0) - timedelta(minutes=cours_duree)).strftime("%H"))
     if date:
         office_start_time = datetime.time(heures_ouvrees["debut"],0)
-        office_end_time = datetime.time(heures_ouvrees["fin"],0)
+        office_end_time = datetime.time(heure_dernier_cours,0)
         start_times = [office_start_time]
         while start_times[-1] < office_end_time:
             next_time = (datetime.datetime.combine(date, start_times[-1]) + timedelta(minutes=cours_duree)).time()

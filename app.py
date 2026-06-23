@@ -37,6 +37,7 @@ pages = {
   st.Page("form.py", title="Formulaires", icon="📋"),
   st.Page("calendar.py", title="Calendrier", icon="📋"),
   st.Page("dialog.py", title="Dialogue", icon="📋"),
+  st.Page("resa_room.py", title="Reservation", icon="📋"),
  ],
 }
 

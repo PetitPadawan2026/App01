@@ -289,10 +289,6 @@ date = current_time_ist.date()
 time1=current_time_ist.time()
 current_time1 = f"{time1.hour:02d}:{time1.minute:02d}"
 
-st.sidebar.button('Timezone 📍 Asia/Kolkata')
-st.sidebar.button(f"Today's Date 🗓️ {date}")
-st.sidebar.button(f"Current Time ⏰ {current_time1}")
-
 # Sidebar menu
 menu_choice = st.sidebar.selectbox("Menu", ["Book a Room", "Cancel Booking", "View Bookings"])
 

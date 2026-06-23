@@ -123,7 +123,7 @@ def book_room():
                             selected_room = room_choice.split(" (Capacity: ")[0]
                             description = st.text_input("Enter Meeting Title:")
                             name = st.text_input("Enter your Name:")
-                                return
+                            #return
                             
                             if not name or not description:
                                 st.warning("All details are mandatory.")

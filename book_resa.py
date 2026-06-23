@@ -5,14 +5,15 @@ from datetime import timedelta
 import random 
 import pandas as pd
 import re
-from pytz import timezone 
-import pytz
+#from pytz import timezone 
+#import pytz
 
 # Set the timezone to "Asia/Kolkata" (Indian Standard Time)
-ist = pytz.timezone('Asia/Kolkata')
+#ist = pytz.timezone('Asia/Kolkata')
 
 # Get the current time in IST
-current_time_ist = datetime.datetime.now(ist)
+#current_time_ist = datetime.datetime.now(ist)
+current_time_ist = datetime.datetime.now()
 ctif = current_time_ist.strftime("%y-%m-%d %H:%M:%S")
 
 # Define file paths for storing booking data

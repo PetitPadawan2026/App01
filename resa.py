@@ -112,7 +112,7 @@ def book_room():
                 end_of_day = min(office_end_time, datetime.time(23, 59))
                 available_end_times = [datetime.datetime.combine(date, start_time) + timedelta(minutes=i) for i in range(15, (end_of_day.hour - start_time.hour) * 60 + 1, 15)]
                 formatted_end_times = [et.strftime('%H:%M:%S') for et in available_end_times]
-                end_time = (datetime.datetime.combine(date, start_times) + timedelta(minutes=cours_duree)).time()  #st.selectbox("Select the End Time:", formatted_end_times,index=None)
+                end_time = (datetime.datetime.combine(date, start_time) + timedelta(minutes=cours_duree)).time()  #st.selectbox("Select the End Time:", formatted_end_times,index=None)
                 if end_time:
                     available_room_options = []
                     for room, capacity in room_capacity.items():

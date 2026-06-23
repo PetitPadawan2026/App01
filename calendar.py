@@ -60,7 +60,8 @@ custom_css="""
     .fc-toolbar-title {
         font-size: 2rem;
     }
-"""
+    """,
+key=st.session_state["Calendar"],
 
 state = calendar(
     events=calendar_events,

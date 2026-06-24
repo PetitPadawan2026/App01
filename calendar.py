@@ -158,7 +158,8 @@ def charger_excel():
 
     sel_niveau = st.selectbox("Niveau:",
                               options=df_niv['niveau_id'].unique(),
-                              format_func=lambda x: f"{x} - {df_niv['niveau_txt'][ x ]}"
+                              format_func=lambda x: f"{x}.split("-") - {df_niv['niveau_txt'][ x ]}"
+                              
                               )
 
 #sel_niveau = st.selectbox("Niveau:", 

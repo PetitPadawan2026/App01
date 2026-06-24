@@ -90,7 +90,7 @@ event_to_add = { "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-0
 if st.button("add event"):
     calendar_events.append(event_to_add)
     st.write(calendar_events)
-    state.addEvent( event_to_add ) #, [source] ??? 
+    #state.addEvent( event_to_add ) #, [source] ??? 
     state.render()
     if 1 == 2:
         st.session_state["calendar"] = str(uuid.uuid4())

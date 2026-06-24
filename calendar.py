@@ -203,10 +203,10 @@ if cxn_status:
 
     st.write(df)
 
-options = st.selectbox(
-"Données de la base"
-("")
-)
+#options = st.selectbox(
+#"Données de la base"
+#("")
+#)
 
 show_table('t_parent')
 

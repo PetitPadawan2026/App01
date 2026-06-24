@@ -175,9 +175,6 @@ if st.button("Sélectionner un cours"):
 #base de donnée
 sql_conn = None
 
-if state.get("sql_conn") is not None:
-    sql_conn = st.session_state["sql_conn"]
-
 def show_table(tabname):
     if st.session_state["sql_conn"] is not None:
         query = "SELECT * FROM " + tabname

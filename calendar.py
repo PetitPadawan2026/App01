@@ -78,7 +78,7 @@ state = calendar(
     custom_css=custom_css,
     key='calendar', # Assign a widget key to prevent state loss
     )
-with st.expander("Calendar data"):
+with st.expander("Calendar data", expanded=False):
     st.write(state)
 #key=st.session_state["calendar"],
 

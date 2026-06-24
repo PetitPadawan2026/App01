@@ -4,6 +4,7 @@ import csv
 from datetime import timedelta
 import random 
 import pandas as pd
+import _operator
 import re
 #from pytz import timezone 
 #import pytz
@@ -95,7 +96,7 @@ def book_room():
     st.header("Book a Room")
     date = st.date_input("Select the Date:", min_value=current_time_ist.date(),value=None)
     current_date = current_time_ist.date()
-    heure_dernier_cours = int((datetime.time(heures_ouvrees["fin"],0) - timedelta(minutes=cours_duree)).strftime("%H"))
+    heure_dernier_cours = '_operator.sub( int((datetime.time(heures_ouvrees["fin"],0) , timedelta(minutes=cours_duree)).strftime("%H")))' 
     if date:
         office_start_time = datetime.time(heures_ouvrees["debut"],0)
         office_end_time = datetime.time(heure_dernier_cours,0)

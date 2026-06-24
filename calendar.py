@@ -93,7 +93,7 @@ event_to_add = { "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-0
 # Excel
 cols_niv=['niveau_id','niveau_txt']
 cols_par=['parent_id','parent_nom','parent_tel','parent_mail']
-cols_enf=['enfant_id','parent_id','enfant_nom','enfant_nivau']
+cols_enf=['enfant_id','parent_id','enfant_nom','enfant_niveau']
 cols_cours=['cours_id'] #To be continued...
 
 df_niv=None
@@ -142,7 +142,6 @@ def get_data_from_excel(xls_file,xls_sheet,skip,rng_cols,rng_rows,rencols=None,s
                 df=df
         try:
             df['URL'] = df['URL'].fillna('')
-            #st.toast("df['URL'].fillna('')")
         except:
             df=df
         if show_table == True:
@@ -156,6 +155,15 @@ def charger_excel():
     df_niv=get_df_idx(0,True)
     df_par=get_df_idx(1,True)
     df_enf=get_df_idx(2,True)    
+
+sel_niveau = st.selectbox("Niveau:",options=df_niv)
+
+#sel_niveau = st.selectbox("Niveau:", 
+#                    options=list(calendar_display.keys()), 
+#                    format_func=lambda x:calendar_display[ x ])
+
+
+
 
 # ===============================================================================================================
 # Form 1

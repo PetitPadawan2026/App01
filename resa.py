@@ -96,8 +96,9 @@ def book_room():
     st.header("Book a Room")
     date = st.date_input("Select the Date:", min_value=current_time_ist.date(),value=None)
     current_date = current_time_ist.date()
-    heure_dernier_cours = int(((datetime.datetime.combine(date, datetime.time(heures_ouvrees["fin"],0)) + timedelta(minutes=-1*int(cours_duree))).time()).strftime("%H"))
+    
     if date:
+        heure_dernier_cours = int(((datetime.datetime.combine(date, datetime.time(heures_ouvrees["fin"],0)) + timedelta(minutes=-1*int(cours_duree))).time()).strftime("%H"))
         office_start_time = datetime.time(heures_ouvrees["debut"],0)
         office_end_time = datetime.time(heure_dernier_cours,0)
         start_times = [office_start_time]

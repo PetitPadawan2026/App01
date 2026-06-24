@@ -201,7 +201,7 @@ if cxn_status:
     df = pd.read_sql(query, sql_conn)
     st.dataframe(df)
 
-st.write(df)
+    st.write(df)
 
 options = st.selectbox(
 "Données de la base"

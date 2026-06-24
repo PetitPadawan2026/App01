@@ -202,7 +202,7 @@ if cxn_status:
 
 #options = st.selectbox(
 #"Données de la base"
-#("")
+#(df)
 #)
 
 show_table('t_parent')

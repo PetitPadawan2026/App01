@@ -24,7 +24,7 @@ def page_menu():
 #pg = st.navigation([page_1, page_2])
 #pg.run()
 
-pages = {
+pages ={
  "Menu": [
   st.Page(page_menu, title="Menu", icon="🏠"),
  ],
@@ -32,10 +32,14 @@ pages = {
   st.Page("inc_streamlit_app.py", title="**Login**", icon="📌"),
   st.Page("form.py", title="Formulaires", icon="📋"),
   st.Page("calendar.py", title="Calendrier", icon="📋"),
+ ],
+"Réservation":[
   st.Page("dialog.py", title="Dialogue", icon="📋"),
   st.Page("resa.py", title="Reservation", icon="📋"),
- ],
+
+ ] 
 }
+
 
 pg = st.navigation(pages)
 pg.run()

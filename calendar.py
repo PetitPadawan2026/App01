@@ -7,6 +7,7 @@ import pyodbc
 import pandas as pd
 from datetime import timedelta
 import uuid
+from openpyxl import load_workbook
 
 # ===============================================================================================================
 # Variables de session
@@ -16,6 +17,9 @@ if "book_event" not in st.session_state:
 
 if not st.session_state.get("calendar", False):
         st.session_state["calendar"] = str(uuid.uuid4())
+
+local_xls='./data/data_app.xlsx'
+excel_loaded=False
 
 # ===============================================================================================================
 # Options / params calendrier
@@ -84,6 +88,74 @@ with st.expander("Calendar data", expanded=False):
 
 
 event_to_add = { "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-06-23T14:30:00", "resourceId": "a2", }
+
+# ===============================================================================================================
+# Excel
+cols_niv=['niveau_id','niveau_txt']
+cols_par=['parent_id','parent_nom','parent_tel','parent_mail']
+cols_enf=['enfant_id','parent_id','enfant_nom','enfant_nivau']
+cols_cours=['cours_id'] #To be continued...
+
+df_niv=None
+df_par=None
+df_enf=None
+df_cours=None
+
+df_xls = { #                    0        1                  2                3  
+        "Worksheet":      ["t_niveau",  "t_parent",     "t_enfant",       "t_cours"],
+        "DisplayName":    ["Niveau",    "Parent",       "Enfant",         "Cours"],
+        "Range":          ["A:B",       "A:D",          "A:D",            "A:E"],
+        "SkipRows":       [1,           1,              1,                1],
+        "UpToRow":        [14,          4,              5,                224],
+        "DisplayColumns": [cols_niv,    cols_par,       cols_enf,         cols_cours],
+        "DataFrame":      [df_niv,      df_par,         df_enf,           df_cours],
+        "Description":    ["Niveau",   "Parent",       "Enfant",         "Cours"]
+       }
+def get_df_idx(idx=0,bln_table=False):
+    try:
+        data_values=get_data_from_excel(xls_file=local_xls,
+                                        xls_sheet=df_xls["Worksheet"][idx],
+                                        skip=df_xls["SkipRows"][idx],
+                                        rng_cols=df_xls["Range"][idx],
+                                        rng_rows=df_xls["UpToRow"][idx],
+                                        rencols=df_xls["DisplayColumns"][idx],
+                                        show_table=bln_table
+                                        )        
+        return data_values
+    except:
+        return None
+
+def get_data_from_excel(xls_file,xls_sheet,skip,rng_cols,rng_rows,rencols=None,show_table=False):
+    try: 
+        df = pd.read_excel(
+            io=xls_file,
+            engine="openpyxl",
+            sheet_name=xls_sheet,
+            skiprows=int(skip),
+            usecols=str(rng_cols),
+            nrows=int(rng_rows),
+        )
+        if rencols is not None:
+            try:
+                df.columns = rencols
+            except:
+                df=df
+        try:
+            df['URL'] = df['URL'].fillna('')
+            #st.toast("df['URL'].fillna('')")
+        except:
+            df=df
+        if show_table == True:
+            with st.expander(xls_sheet, expanded=False, icon=':material/table_view:', width='stretch'):
+                st.dataframe(df)
+    except:
+        df = None
+    return df
+
+def charger_excel():
+    df_niv=get_df_idx(0,True)
+    df_par=get_df_idx(1,True)
+    df_enf=get_df_idx(2,True)    
 
 # ===============================================================================================================
 # Form 1
@@ -172,39 +244,45 @@ if st.button("Sélectionner un cours"):
     book_event()
 
 # ===============================================================================================================
-#base de donnée
+# Données via Excel
+charger_excel()
+
+# ===============================================================================================================
+#base de donnée - Début
 sql_conn = None
+cxn_status = False
 
 def show_table(tabname):
     if st.session_state["sql_conn"] is not None:
         query = "SELECT * FROM " + tabname
         df = pd.read_sql(query, st.session_state["sql_conn"])
         return st.dataframe(df)
+if 1 == 2:
+    with st.spinner("Connecting database...", show_time=True):
+        try:
+            sql_conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+st.secrets["Server"]+';DATABASE='+st.secrets["Database"]+';Uid='+st.secrets["Uid"]+';Pwd='+st.secrets["Pwd"])
+            #;Trusted_Connection=yes'
+            cxn_status = True
+            st.session_state["sql_conn"] = sql_conn
+        except pyodbc.Error as ex:
+            st.error('Database unreachable', icon="🚨")
+            cxn_status = False
+            st.session_state["sql_conn"] = None
 
-cxn_status = False
-with st.spinner("Connecting database...", show_time=True):
-    try:
-        sql_conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+st.secrets["Server"]+';DATABASE='+st.secrets["Database"]+';Uid='+st.secrets["Uid"]+';Pwd='+st.secrets["Pwd"])
-        #;Trusted_Connection=yes'
-        cxn_status = True
-        st.session_state["sql_conn"] = sql_conn
-    except pyodbc.Error as ex:
-        st.error('Database unreachable', icon="🚨")
-        cxn_status = False
-        st.session_state["sql_conn"] = None
+    if cxn_status:
+        query = "SELECT * FROM t_niveau"
+        df = pd.read_sql(query, sql_conn)
+        st.dataframe(df)
 
-if cxn_status:
-    query = "SELECT * FROM t_niveau"
-    df = pd.read_sql(query, sql_conn)
-    st.dataframe(df)
+        st.write(df)
 
-    st.write(df)
+    #options = st.selectbox(
+    #"Données de la base"
+    #(df)
+    #)
 
-#options = st.selectbox(
-#"Données de la base"
-#(df)
-#)
+    show_table('t_parent')
 
-show_table('t_parent')
-
+#base de donnée - Fin
+# ===============================================================================================================
 

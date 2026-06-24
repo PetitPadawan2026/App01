@@ -153,8 +153,8 @@ def get_data_from_excel(xls_file,xls_sheet,skip,rng_cols,rng_rows,rencols=None,s
 
 def charger_excel():
     df_niv=get_df_idx(0,True)
-    df_par=get_df_idx(1,True)
-    df_enf=get_df_idx(2,True)    
+    df_par=get_df_idx(1,False)
+    df_enf=get_df_idx(2,False)    
 
     sel_niveau = st.selectbox("Niveau:",
                               options=df_niv['niveau_id'].unique(),

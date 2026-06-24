@@ -35,6 +35,8 @@ calendar_events = [
 ] 
 
 if st.session_state.book_event is not None:
+    with st.expander:
+        st.write(st.session_state.book_event)
     #calendar_events.append(st.session_state.book_event)
     calendar_events = st.session_state.book_event
 

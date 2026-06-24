@@ -156,7 +156,7 @@ def charger_excel():
     df_par=get_df_idx(1,True)
     df_enf=get_df_idx(2,True)    
 
-    sel_niveau = st.selectbox("Niveau:",options=list(df_niv.keys()))
+    sel_niveau = st.selectbox("Niveau:",options=df_niv['niveau_id'].unique())
 
 #sel_niveau = st.selectbox("Niveau:", 
 #                    options=list(calendar_display.keys()), 

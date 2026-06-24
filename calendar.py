@@ -201,6 +201,13 @@ if cxn_status:
     df = pd.read_sql(query, sql_conn)
     st.dataframe(df)
 
-    show_table('t_parent')
+st.write(df)
+
+options = st.selectbox(
+"Données de la base"
+("")
+)
+
+show_table('t_parent')
 
 

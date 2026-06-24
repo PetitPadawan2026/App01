@@ -98,7 +98,7 @@ def book_room():
     current_date = current_time_ist.date()
     #heure_dernier_cours = '_operator.sub( int((datetime.time(heures_ouvrees["fin"],0) , timedelta(minutes=cours_duree)).strftime("%H")))' 
     #heure_dernier_cours = int((datetime.time(heures_ouvrees["fin"],0) + timedelta(minutes=-1*int(cours_duree))).strftime("%H"))
-    heure_dernier_cours = int(((datetime.datetime.combine(date, start_times[-1]) + timedelta(minutes=-1*int(cours_duree))).time()).strftime("%H"))
+    heure_dernier_cours = int(((datetime.datetime.combine(date, datetime.time(heures_ouvrees["fin"],0)) + timedelta(minutes=-1*int(cours_duree))).time()).strftime("%H"))
     if date:
         office_start_time = datetime.time(heures_ouvrees["debut"],0)
         office_end_time = datetime.time(heure_dernier_cours,0)

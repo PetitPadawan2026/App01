@@ -28,10 +28,6 @@ pages = {
  "Menu": [
   st.Page(page_menu, title="Menu", icon="🏠"),
  ],
- "Resources": [
-  st.Page(page_1, title="Page 1", icon="📰"),
-  st.Page(page_2, title="Page 2", icon="📰"),
- ],
  "Inscription / Connexion": [
   st.Page("inc_streamlit_app.py", title="**Login**", icon="📌"),
   st.Page("form.py", title="Formulaires", icon="📋"),

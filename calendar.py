@@ -105,7 +105,7 @@ df_xls = { #                    0        1                  2                3
         "Worksheet":      ["t_niveau",  "t_parent",     "t_enfant",       "t_cours"],
         "DisplayName":    ["Niveau",    "Parent",       "Enfant",         "Cours"],
         "Range":          ["A:B",       "A:D",          "A:D",            "A:E"],
-        "SkipRows":       [1,           1,              1,                1],
+        "SkipRows":       [0,           0,              0,                0],
         "UpToRow":        [14,          4,              5,                224],
         "DisplayColumns": [cols_niv,    cols_par,       cols_enf,         cols_cours],
         "DataFrame":      [df_niv,      df_par,         df_enf,           df_cours],

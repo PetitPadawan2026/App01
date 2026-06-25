@@ -163,7 +163,7 @@ def date_time_to_datetime(date_in,time_in):
     c = f'{a} {b}'
 
     d= time.strptime(c, '%Y-%m-%d %H:%M:%S')
-    ret_val = datetime.fromtimestamp(time.mktime(d))
+    ret_val = datetime.datetime.fromtimestamp(time.mktime(d))
     return ret_val #ret_val.strftime("%Y-%m-%d %H:%M:%S")
 
 def charger_excel():

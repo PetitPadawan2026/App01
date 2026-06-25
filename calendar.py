@@ -164,7 +164,7 @@ def date_time_to_datetime(date_in,time_in):
     date_ret=datetime.strptime(date_in, '%Y-%m-%d').date()
     time_ret=time.strptime(time_in, '%H:%M:%S')
 
-    ret_val= time.strptime(c, '%Y-%m-%d %H:%M:%S') f#"{date_ret} {time_ret}"
+    ret_val= time.strptime(c, '%Y-%m-%d %H:%M:%S') #f"{date_ret} {time_ret}"
     #date_in.strftime("%Y-%m-%d %H:%M:%S")
     return ret_val #ret_val.strftime("%Y-%m-%d %H:%M:%S")
 

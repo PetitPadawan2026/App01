@@ -189,12 +189,12 @@ def charger_excel():
         df_cours
     
     
-    if st.button("MAJ Caldendrier"):
-        #calendar_events = [
-        #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
-        df_cours
-        nouveau_cours
-        calendar_events
+        if st.button("MAJ Caldendrier"):
+            #calendar_events = [
+            #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
+            df_cours
+            nouveau_cours
+            calendar_events
 
 
 

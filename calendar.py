@@ -58,9 +58,13 @@ else:
     df=st.session_state.updated_events
     rows,cols=df.shape
     for x in range(rows):
-        st.write(x)
+        evt=build_event(df["title"][x],
+                        df["start"][x],
+                        df["end"][x],
+                        df["resourceId"][x])
+        calendar_events.append(evt)
     #calendar_events=st.session_state.updated_events
-st.write(st.session_state.updated_events)
+st.write(calendar_events)
 
 if "calendar_events" not in st.session_state:
     st.session_state.calendar_events=calendar_events

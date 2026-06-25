@@ -159,8 +159,9 @@ def charger_excel():
     sel_niveau = st.selectbox ("Niveau:",
                               options=df_niv['niveau_id'].unique(),
                               format_func=lambda x: f"{x} - {df_niv['niveau_txt'][ x ]}"
-                              
                               )
+    if sel_niveau:
+        st.write(sel_niveau)
 
 #sel_niveau = st.selectbox("Niveau:", 
 #                    options=list(calendar_display.keys()), 

@@ -185,6 +185,11 @@ def charger_excel():
         new_row = pd.Series(nouveau_cours)
         df_cours=pd.concat([df_cours, new_row.to_frame().T], ignore_index=True)
         df_cours
+    
+    if st.button("MAJ Caldendrier"):
+        #calendar_events = [
+        #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
+        df_cours
 
 #sel_niveau = st.selectbox("Niveau:", 
 #                    options=list(calendar_display.keys()), 

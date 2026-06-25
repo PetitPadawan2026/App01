@@ -210,7 +210,7 @@ def charger_excel():
         #calendar_events = [
         #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
         nouveau_event
-        calendar_events=st.session_state.calendar_events
+        calendar_events=pd.Series(st.session_state.calendar_events)
         calendar_events
         calendar_events=pd.concat([calendar_events, pd.Series(nouveau_event).to_frame().T], ignore_index=True)
         calendar_events

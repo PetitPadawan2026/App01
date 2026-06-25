@@ -157,6 +157,14 @@ def get_data_from_excel(xls_file,xls_sheet,skip,rng_cols,rng_rows,rencols=None,s
         df = None
     return df
 
+def date_time_to_datetime(date_in,time_in):
+    date_ret=date_in.strftime("%Y-%m-%d")
+    time_ret=time_in.strftime("%H:%M:%S")
+
+    ret_val= f"{date_ret} {time_ret}"
+    #date_in.strftime("%Y-%m-%d %H:%M:%S")
+    return ret_val.strftime("%Y-%m-%d %H:%M:%S")
+
 def charger_excel():
     df_niv=get_df_idx(0,True)
     df_par=get_df_idx(1,False)
@@ -195,6 +203,11 @@ def charger_excel():
             "resourceId":"a"
             }
         
+        st.write(
+            date_time_to_datetime(nouveau_cours['cours_date'],          #date_in    2026-06-35 00:00:00
+                                  nouveau_cours['cours_heure_fin'])     #time_in    12:45:00
+        )                                                               #=>         2026-06-35 12:45:00
+
         #calendar_events = [
         #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
         df_cours

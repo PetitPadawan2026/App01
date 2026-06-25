@@ -48,10 +48,10 @@ if "updated_events" not in st.session_state:
 else:
     calendar_events=st.session_state.updated_events
 st.write(st.session_state.updated_events)
-st.write(calendar_events)
 
 if "calendar_events" not in st.session_state:
     st.session_state.calendar_events=calendar_events
+st.write(calendar_events)
 
 if st.session_state.book_event is not None:
     with st.expander("st.session_state.book_event"):

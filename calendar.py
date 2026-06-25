@@ -28,6 +28,14 @@ excel_loaded=False
 
 # ===============================================================================================================
 # Options / params calendrier
+def build_event(titre,debut,fin,ressource="a"):
+    event_to_add = { "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-06-23T14:30:00", "resourceId": "a2", }
+    event_to_add["title"]=titre
+    event_to_add["start"]=debut
+    event_to_add["end"]=fin
+    event_to_add["resourceId"]=ressource
+    return event_to_add
+
 calendar_resources = [
         {"id": "a", "cours": "Eleve A", "title": "Cours A"},
         {"id": "a2", "cours": "Eleve A", "title": "Cours B"},
@@ -47,8 +55,8 @@ if "updated_events" not in st.session_state:
     st.session_state.updated_events=calendar_events
 else:
     calendar_events.clear()
-    for x,y in enumerate(st.session_state.updated_events):
-        st.write(x,y)
+    for x in range(st.session_state.updated_events):
+        st.write(x)
     #calendar_events=st.session_state.updated_events
 st.write(st.session_state.updated_events)
 

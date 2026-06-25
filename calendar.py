@@ -174,14 +174,14 @@ def charger_excel():
         st.write(df_niv['niveau_txt'][ sel_niveau ])
 
     if st.button("add event 2"):
-        nouveau_cours={
-            'cours_id':99,
-            'cours_date':'2026-06-35 00:00:00',
-            'cours_heure_debut':'12:00:00',
-            'cours_heure_fin':'12:45:00',
-            'cours_niveau':10,
-            'cours_capacite':3
-        }
+        nouveau_cours=[
+            'cours_id'=99,
+            'cours_date'='2026-06-35 00:00:00',
+            'cours_heure_debut'='12:00:00',
+            'cours_heure_fin'='12:45:00',
+            'cours_niveau'=10,
+            'cours_capacite'=3
+        ]
 
         df = pd.DataFrame(df_cours)
         df

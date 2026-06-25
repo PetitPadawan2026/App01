@@ -51,7 +51,6 @@ st.write(st.session_state.updated_events)
 
 if "calendar_events" not in st.session_state:
     st.session_state.calendar_events=calendar_events
-st.write(calendar_events)
 
 if st.session_state.book_event is not None:
     with st.expander("st.session_state.book_event"):
@@ -91,6 +90,7 @@ custom_css="""
     
 # ===============================================================================================================
 # Calendrier Widget
+st.write(calendar_events)
 state = calendar(
     events=calendar_events,
     options=calendar_options,

@@ -214,7 +214,7 @@ def charger_excel():
         calendar_events=pd.concat([pd.DataFrame(st.session_state.calendar_events), 
                                    pd.Series(nouveau_event).to_frame().T], 
                                    ignore_index=True)
-        st.session_state.updated_events
+        st.session_state.updated_events=calendar_events
 
 
 #sel_niveau = st.selectbox("Niveau:", 

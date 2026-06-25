@@ -215,7 +215,7 @@ def charger_excel():
                                    pd.Series(nouveau_event).to_frame().T], 
                                    ignore_index=True)
         st.session_state.updated_events=calendar_events
-
+        st.rerun()
 
 #sel_niveau = st.selectbox("Niveau:", 
 #                    options=list(calendar_display.keys()), 

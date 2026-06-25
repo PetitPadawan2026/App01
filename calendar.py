@@ -94,14 +94,15 @@ event_to_add = { "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-0
 cols_niv=['niveau_id','niveau_txt']
 cols_par=['parent_id','parent_nom','parent_tel','parent_mail']
 cols_enf=['enfant_id','parent_id','enfant_nom','enfant_niveau']
-cols_cours=['cours_id'] #To be continued...
+cols_cours=['cours_id','cours_date','cours_heure_debut','cours_heure_fin','cours_niveau','cours_capacite']
+
 
 df_niv=None
 df_par=None
 df_enf=None
 df_cours=None
 
-df_xls = { #                    0        1                  2                3  
+df_xls = { #                    0            1               2                3  
         "Worksheet":      ["t_niveau",  "t_parent",     "t_enfant",       "t_cours"],
         "DisplayName":    ["Niveau",    "Parent",       "Enfant",         "Cours"],
         "Range":          ["A:B",       "A:D",          "A:D",            "A:E"],
@@ -154,7 +155,8 @@ def get_data_from_excel(xls_file,xls_sheet,skip,rng_cols,rng_rows,rencols=None,s
 def charger_excel():
     df_niv=get_df_idx(0,True)
     df_par=get_df_idx(1,False)
-    df_enf=get_df_idx(2,False)    
+    df_enf=get_df_idx(2,False) 
+    df_cours=get_df_idx(3,False)   
 
     sel_niveau = st.selectbox ("Niveau:",
                               options=df_niv['niveau_id'].unique(),

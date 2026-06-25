@@ -196,8 +196,8 @@ def charger_excel():
         nouveau_cours={
             'cours_id':99,
             'cours_date':'2026-06-25 00:00:00',
-            'cours_heure_debut':'12:00:00',
-            'cours_heure_fin':'12:45:00',
+            'cours_heure_debut':'09:00:00',
+            'cours_heure_fin':'11:45:00',
             'cours_niveau':10,
             'cours_capacite':3
         }

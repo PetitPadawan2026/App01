@@ -105,9 +105,9 @@ df_cours=None
 df_xls = { #                    0            1               2                3  
         "Worksheet":      ["t_niveau",  "t_parent",     "t_enfant",       "t_cours"],
         "DisplayName":    ["Niveau",    "Parent",       "Enfant",         "Cours"],
-        "Range":          ["A:B",       "A:D",          "A:D",            "A:E"],
+        "Range":          ["A:B",       "A:D",          "A:D",            "A:F"],
         "SkipRows":       [0,           0,              0,                0],
-        "UpToRow":        [14,          4,              5,                224],
+        "UpToRow":        [14,          4,              5,                6],
         "DisplayColumns": [cols_niv,    cols_par,       cols_enf,         cols_cours],
         "DataFrame":      [df_niv,      df_par,         df_enf,           df_cours],
         "Description":    ["Niveau",   "Parent",       "Enfant",         "Cours"]
@@ -165,6 +165,11 @@ def charger_excel():
     if sel_niveau:
         st.write(sel_niveau)
         st.write(df_niv['niveau_txt'][ sel_niveau ])
+
+    df=pd.read_excel(
+        df_cours=df.dropna
+        
+    )
 
 #sel_niveau = st.selectbox("Niveau:", 
 #                    options=list(calendar_display.keys()), 

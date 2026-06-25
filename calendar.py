@@ -161,8 +161,8 @@ def date_time_to_datetime(date_in,time_in):
     a = date_in[:10]
     b = time_in
     c = f'{a} {b}'
-    date_ret=datetime.strptime(date_in, '%Y-%m-%d').date()
-    time_ret=time.strptime(time_in, '%H:%M:%S')
+    #date_ret=datetime.strptime(date_in, '%Y-%m-%d').date()
+    #time_ret=time.strptime(time_in, '%H:%M:%S')
 
     ret_val= time.strptime(c, '%Y-%m-%d %H:%M:%S') #f"{date_ret} {time_ret}"
     #date_in.strftime("%Y-%m-%d %H:%M:%S")

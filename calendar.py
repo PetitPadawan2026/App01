@@ -43,6 +43,10 @@ calendar_events = [
     { "title": "Event 4", "start": "2026-06-18T10:40:00", "end": "2026-06-19T12:30:00", "resourceId": "a2", }
 ] 
 
+st.session_state.updated_events
+if "updated_events" in st.session_state:
+    calendar_events=st.session_state.updated_events
+
 if "calendar_events" not in st.session_state:
     st.session_state.calendar_events=calendar_events
 
@@ -206,15 +210,10 @@ def charger_excel():
             "end":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_fin']),
             "resourceId":"a"
             }
-
-        #calendar_events = [
-        #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
-        nouveau_event
-        calendar_events=pd.DataFrame(st.session_state.calendar_events)
-        calendar_events
-        calendar_events=pd.concat([calendar_events, pd.Series(nouveau_event).to_frame().T], ignore_index=True)
-        calendar_events
-
+        calendar_events=pd.concat([pd.DataFrame(st.session_state.calendar_events), 
+                                   pd.Series(nouveau_event).to_frame().T], 
+                                   ignore_index=True)
+        st.session_state.updated_events
 
 
 #sel_niveau = st.selectbox("Niveau:", 

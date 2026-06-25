@@ -48,7 +48,7 @@ if "updated_events" not in st.session_state:
 else:
     calendar_events.clear()
     for x in st.session_state.updated_events.items():
-        calendar_events.append(x)
+        st.write(x)
     #calendar_events=st.session_state.updated_events
 st.write(st.session_state.updated_events)
 

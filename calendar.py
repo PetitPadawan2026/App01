@@ -43,6 +43,9 @@ calendar_events = [
     { "title": "Event 4", "start": "2026-06-18T10:40:00", "end": "2026-06-19T12:30:00", "resourceId": "a2", }
 ] 
 
+if "calendar_events" not in st.session_state:
+    st.session_state.calendar_events=calendar_events
+
 if st.session_state.book_event is not None:
     with st.expander("st.session_state.book_event"):
         st.write(st.session_state.book_event)
@@ -207,7 +210,7 @@ def charger_excel():
         #calendar_events = [
         #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
         nouveau_event
-
+        calendar_events=st.session_state.calendar_events
         calendar_events=pd.concat([calendar_events, pd.Series(nouveau_event).to_frame().T], ignore_index=True)
         calendar_events
 

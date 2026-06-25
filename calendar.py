@@ -8,6 +8,7 @@ import pandas as pd
 from datetime import timedelta
 import uuid
 from openpyxl import load_workbook
+import random
 
 # ===============================================================================================================
 # https://wgrhbpwvstegeekoqww2ua.streamlit.app/
@@ -176,7 +177,16 @@ def charger_excel():
         st.write(sel_niveau)
         st.write(df_niv['niveau_txt'][ sel_niveau ])
 
-    
+    if st.button("add event 2"):
+        nouveau_cours={
+            'cours_id'=99,
+            'cours_date'='2026-06-35 00:00:00',
+            'cours_heure_debut'='12:00:00',
+            'cours_heure_fin'='12:45:00',
+            'cours_niveau'=10,
+            'cours_capacite'=3
+        }
+        df_cours.append(nouveau_cours)    
 
 #sel_niveau = st.selectbox("Niveau:", 
 #                    options=list(calendar_display.keys()), 
@@ -196,6 +206,13 @@ if st.button("add event"):
     if 1 == 2:
         st.session_state["calendar"] = str(uuid.uuid4())
         st.rerun()
+
+
+
+
+
+
+
 
 def make_select_niveau(txt_label="Test"):
     return st.selectbox(

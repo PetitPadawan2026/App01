@@ -90,16 +90,31 @@ custom_css="""
     
 # ===============================================================================================================
 # Calendrier Widget
-st.write(calendar_events)
-state = calendar(
-    events=calendar_events,
-    options=calendar_options,
-    custom_css=custom_css,
-    key='calendar', # Assign a widget key to prevent state loss
-    )
-with st.expander("Calendar data", expanded=False):
-    st.write(state)
-#key=st.session_state["calendar"],
+def build_calendar(events,options=calendar_options,css=custom_css):
+    st.write(events)
+    obj_cal = calendar(
+        events=events,
+        options=options,
+        custom_css=css,
+        key='calendar', # Assign a widget key to prevent state loss
+        )
+    with st.expander("Calendar data", expanded=False):
+        st.write(obj_cal)    
+    return obj_cal
+
+build_calendar(calendar_events)
+
+if 1 == 2:
+    st.write(calendar_events)
+    state = calendar(
+        events=calendar_events,
+        options=calendar_options,
+        custom_css=custom_css,
+        key='calendar', # Assign a widget key to prevent state loss
+        )
+    with st.expander("Calendar data", expanded=False):
+        st.write(state)
+    #key=st.session_state["calendar"],
 
 
 event_to_add = { "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-06-23T14:30:00", "resourceId": "a2", }

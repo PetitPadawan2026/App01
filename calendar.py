@@ -182,7 +182,14 @@ def charger_excel():
             'cours_niveau':10,
             'cours_capacite':3
         }
-        df_cours.append(nouveau_cours)    
+
+        df = pd.DataFrame(df_cours)
+        df
+        df2 = pd.DataFrame(nouveau_cours)
+        df2
+        df.append(df2)
+        df
+        #df_cours.append(nouveau_cours)    
 
 #sel_niveau = st.selectbox("Niveau:", 
 #                    options=list(calendar_display.keys()), 

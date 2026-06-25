@@ -183,8 +183,8 @@ def charger_excel():
             'cours_capacite':3
         }
         new_row = pd.Series(nouveau_cours)
-        df8=pd.concat([df_cours, new_row.to_frame().T], ignore_index=True)
-        df8
+        df_cours=pd.concat([df_cours, new_row.to_frame().T], ignore_index=True)
+        df_cours
 
 #sel_niveau = st.selectbox("Niveau:", 
 #                    options=list(calendar_display.keys()), 

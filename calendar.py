@@ -187,14 +187,22 @@ def charger_excel():
         new_row = pd.Series(nouveau_cours)
         df_cours=pd.concat([df_cours, new_row.to_frame().T], ignore_index=True)
         df_cours
+
+        nouveau_event={
+            "title":f"Event {nouveau_cours.cours_id}",
+            "start":nouveau_cours.cours_date,
+            "end":nouveau_cours.cours_heure_fin,
+            "resourceId":"a"
+            }
+        
     
-    
-        if st.button("MAJ Caldendrier"):
-            #calendar_events = [
-            #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
-            df_cours
-            nouveau_cours
-            calendar_events
+    if st.button("MAJ Caldendrier"):
+        #calendar_events = [
+        #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
+        df_cours
+        nouveau_event
+
+        calendar_events
 
 
 

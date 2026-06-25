@@ -167,8 +167,8 @@ def charger_excel():
         st.write(df_niv['niveau_txt'][ sel_niveau ])
 
     df=pd.read_excel(
-        new_df_cours = df_cours.dropna('')
-     )
+        new_df_cours = df_cours.dropna()
+    )
 
 #sel_niveau = st.selectbox("Niveau:", 
 #                    options=list(calendar_display.keys()), 

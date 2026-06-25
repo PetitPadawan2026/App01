@@ -162,6 +162,7 @@ def charger_excel():
                               )
     if sel_niveau:
         st.write(sel_niveau)
+        st.write(df_niv['niveau_txt'][ sel_niveau ])
 
 #sel_niveau = st.selectbox("Niveau:", 
 #                    options=list(calendar_display.keys()), 

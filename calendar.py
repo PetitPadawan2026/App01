@@ -43,10 +43,10 @@ calendar_events = [
     { "title": "Event 4", "start": "2026-06-18T10:40:00", "end": "2026-06-19T12:30:00", "resourceId": "a2", }
 ] 
 
-if "updated_events" in st.session_state:
-    calendar_events=st.session_state.updated_events
-else:
+if "updated_events" not in st.session_state:
     st.session_state.updated_events=calendar_events
+else:
+    calendar_events=st.session_state.updated_events
 
 if "calendar_events" not in st.session_state:
     st.session_state.calendar_events=calendar_events
@@ -55,7 +55,7 @@ if st.session_state.book_event is not None:
     with st.expander("st.session_state.book_event"):
         st.write(st.session_state.book_event)
     #calendar_events.append(st.session_state.book_event)
-    calendar_events = st.session_state.book_event
+    #calendar_events = st.session_state.book_event
 
 calendar_options = {
     "editable": True,
@@ -211,10 +211,11 @@ def charger_excel():
             "end":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_fin']),
             "resourceId":"a"
             }
-        calendar_events=pd.concat([pd.DataFrame(st.session_state.calendar_events), 
-                                   pd.Series(nouveau_event).to_frame().T], 
-                                   ignore_index=True)
-        st.session_state.updated_events=calendar_events
+
+        st.session_state.updated_events=pd.concat([
+                                        pd.DataFrame(st.session_state.calendar_events), 
+                                        pd.Series(nouveau_event).to_frame().T], 
+                                        ignore_index=True)
         st.rerun()
 
 #sel_niveau = st.selectbox("Niveau:", 
@@ -227,20 +228,6 @@ def charger_excel():
 
 # ===============================================================================================================
 # Form 1
-if st.button("add event"):
-    #calendar_events.append(event_to_add)
-    st.write(calendar_events)
-    #state.addEvent( event_to_add ) #, [source] ??? 
-    state.render()
-    if 1 == 2:
-        st.session_state["calendar"] = str(uuid.uuid4())
-        st.rerun()
-
-
-
-
-
-
 
 
 def make_select_niveau(txt_label="Test"):

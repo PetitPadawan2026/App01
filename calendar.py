@@ -158,12 +158,15 @@ def get_data_from_excel(xls_file,xls_sheet,skip,rng_cols,rng_rows,rencols=None,s
     return df
 
 def date_time_to_datetime(date_in,time_in):
-    date_ret=date_in.strftime("%Y-%m-%d")
-    time_ret=time_in.strftime("%H:%M:%S")
+    a = date_in[:10]
+    b = time_in
+    c = f'{a} {b}'
+    date_ret=datetime.strptime(date_in, '%Y-%m-%d').date()
+    time_ret=time.strptime(time_in, '%H:%M:%S')
 
-    ret_val= f"{date_ret} {time_ret}"
+    ret_val= time.strptime(c, '%Y-%m-%d %H:%M:%S') f#"{date_ret} {time_ret}"
     #date_in.strftime("%Y-%m-%d %H:%M:%S")
-    return ret_val.strftime("%Y-%m-%d %H:%M:%S")
+    return ret_val #ret_val.strftime("%Y-%m-%d %H:%M:%S")
 
 def charger_excel():
     df_niv=get_df_idx(0,True)
@@ -186,7 +189,7 @@ def charger_excel():
     if st.button("add event 2"):
         nouveau_cours={
             'cours_id':99,
-            'cours_date':'2026-06-35 00:00:00',
+            'cours_date':'2026-06-25 00:00:00',
             'cours_heure_debut':'12:00:00',
             'cours_heure_fin':'12:45:00',
             'cours_niveau':10,
@@ -206,8 +209,8 @@ def charger_excel():
         st.write(
             date_time_to_datetime(nouveau_cours['cours_date'],          #date_in    2026-06-35 00:00:00
                                   nouveau_cours['cours_heure_fin'])     #time_in    12:45:00
-        )                                                               #=>         2026-06-35 12:45:00
-
+        )                                                               #=>         2026-06-25 12:45:00
+        #2026-06-25 12:45:00 => 202606251245000000
         #calendar_events = [
         #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
         df_cours

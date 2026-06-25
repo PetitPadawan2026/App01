@@ -164,7 +164,7 @@ def date_time_to_datetime(date_in,time_in):
 
     d= time.strptime(c, '%Y-%m-%d %H:%M:%S')
     ret_val = datetime.datetime.fromtimestamp(time.mktime(d))
-    return ret_val #ret_val.strftime("%Y-%m-%d %H:%M:%S")
+    return c #ret_val #ret_val.strftime("%Y-%m-%d %H:%M:%S")
 
 def charger_excel():
     df_niv=get_df_idx(0,True)
@@ -211,7 +211,6 @@ def charger_excel():
         #2026-06-25 12:45:00 => 202606251245000000
         #calendar_events = [
         #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
-        df_cours
         nouveau_event
 
         calendar_events

@@ -163,7 +163,7 @@ def charger_excel():
     df_cours=get_df_idx(3,False)   
 
     new_df_cours = df_cours.dropna()
-
+    st.dataframe(new_df_cours)
     sel_niveau = st.selectbox ("Niveau:",
                               options=df_niv['niveau_id'].unique(),
                               format_func=lambda x: f"{x} - {df_niv['niveau_txt'][ x ]}"

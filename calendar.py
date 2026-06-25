@@ -203,16 +203,12 @@ def charger_excel():
             "end":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_fin']),
             "resourceId":"a"
             }
-        
-        st.write(
-            date_time_to_datetime(nouveau_cours['cours_date'],          #date_in    2026-06-35 00:00:00
-                                  nouveau_cours['cours_heure_fin'])     #time_in    12:45:00
-        )                                                               #=>         2026-06-25 12:45:00
-        #2026-06-25 12:45:00 => 202606251245000000
+
         #calendar_events = [
         #    { "title": "Event 1", "start": "2026-06-16T08:30:00", "end": "2026-06-16T10:30:00", "resourceId": "a", },
         nouveau_event
 
+        calendar_events=pd.concat([calendar_events, pd.Series(nouveau_event).to_frame().T], ignore_index=True)
         calendar_events
 
 

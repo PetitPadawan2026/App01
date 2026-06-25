@@ -189,9 +189,9 @@ def charger_excel():
         df_cours
 
         nouveau_event={
-            "title":f"Event {nouveau_cours.cours_id}",
-            "start":nouveau_cours.cours_date,
-            "end":nouveau_cours.cours_heure_fin,
+            "title":f"Event {nouveau_cours['cours_id']}",
+            "start":nouveau_cours['cours_date'],
+            "end":nouveau_cours['cours_heure_fin'],
             "resourceId":"a"
             }
         

@@ -228,7 +228,7 @@ def charger_excel():
 # ===============================================================================================================
 # Form 1
 if st.button("add event"):
-    calendar_events.append(event_to_add)
+    #calendar_events.append(event_to_add)
     st.write(calendar_events)
     #state.addEvent( event_to_add ) #, [source] ??? 
     state.render()

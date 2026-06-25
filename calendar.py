@@ -43,7 +43,6 @@ calendar_events = [
     { "title": "Event 4", "start": "2026-06-18T10:40:00", "end": "2026-06-19T12:30:00", "resourceId": "a2", }
 ] 
 
-st.session_state.updated_events
 if "updated_events" in st.session_state:
     calendar_events=st.session_state.updated_events
 

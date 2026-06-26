@@ -351,6 +351,7 @@ if st.session_state.book_event is not None:
 
 if st.button("Sélectionner un parent"):
     df=get_df(1)
+    df
     sel_parent = st.selectbox ("Parent:",
                              options=df['parent_id'].unique(),
                              format_func=lambda x: f"{x} - {df['parent_nom'][ x ]}"

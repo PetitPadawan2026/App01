@@ -220,6 +220,7 @@ def charger_excel():
     
     nouveau_cours={}
 
+    df_xls
 
     #if sel_niveau:
      #   st.write(sel_niveau)

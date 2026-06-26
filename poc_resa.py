@@ -339,7 +339,7 @@ if st.session_state.book_event is not None:
     st.dataframe(st.session_state.book_event)
 
 if st.button("Sélectionner un parent"):
-    cols_par()
+    cols_par('')
 
 if st.button("Sélectionner un cours"):
     book_event()

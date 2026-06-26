@@ -264,9 +264,10 @@ def charger_excel():
 def get_df(id=0):
     try:
         #st.dataframe(df)
-        df_xls["DataFrame"][0]
-        return df_xls["DataFrame"][0]
+        df_xls["DataFrame"][id]
+        return df_xls["DataFrame"][id]
     except:
+        st.write(f'Erreur get_df pour {id}')
         return None
 
 # ===============================================================================================================
@@ -364,3 +365,4 @@ if st.button("Sélectionner un cours"):
 # Données via Excel
 charger_excel()
 
+df_xls["DataFrame"][0]

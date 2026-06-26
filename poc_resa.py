@@ -222,6 +222,8 @@ def date_time_to_datetime(date_in,time_in):
     return c #ret_val #ret_val.strftime("%Y-%m-%d %H:%M:%S")
 
 def charger_excel():
+    global df_xls
+
     df_niv=get_df_idx(0,False)
     df_par=get_df_idx(1,False)
     df_enf=get_df_idx(2,False) 
@@ -238,7 +240,7 @@ def charger_excel():
 
     if st.button("Reserver"):
         nouveau_cours={
-            'cours_id':99,
+            'cours_id':'Tom',
             'cours_date':'2026-06-25 00:00:00',
             'cours_heure_debut':'09:00:00',
             'cours_heure_fin':'11:45:00',

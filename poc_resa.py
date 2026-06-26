@@ -371,3 +371,23 @@ if st.button("Sélectionner un cours"):
 # ===============================================================================================================
 # Données via Excel
 charger_excel()
+
+# Demo
+x = "initial"
+
+def test_x():
+    global x
+    x = "maj test_x"
+    st.write(f"x={x}")
+
+def test_local():
+    x = "local"
+    st.write(f"x={x}")
+
+with st.expander("Demo"):
+    st.write(f"x={x}")
+    test_x()
+    test_local()
+    st.write(f"x={x}")
+
+

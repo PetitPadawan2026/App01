@@ -264,17 +264,17 @@ def charger_excel():
 
 
 def make_select_niveau(txt_label="Test"):
-    return st.selectbox(
-        txt_label,
-        ("Tous Niveaux ", "Niveau 1 ", "Niveau 2 ", "Niveau 3 ", "Niveau 4 ", "Niveau 5 ", "Niveau 6 ", "Niveau 7 ", "Niveau 8 ", "Niveau 9 ", "Niveau 10 ", "Niveau 11 ", "Niveau 12 "),
-        label_visibility="hidden" if txt_label == "Test" else "visible"
-    )
-    sel_niveau = st.selectbox( txt_label ="Test":
+    #return st.selectbox(
+        #txt_label,
+        #("Tous Niveaux ", "Niveau 1 ", "Niveau 2 ", "Niveau 3 ", "Niveau 4 ", "Niveau 5 ", "Niveau 6 ", "Niveau 7 ", "Niveau 8 ", "Niveau 9 ", "Niveau 10 ", "Niveau 11 ", "Niveau 12 "),
+        #label_visibility="hidden" if txt_label == "Test" else "visible"
+    #)
+    sel_niveau = st.selectbox(txt_label ="Test",
                              options=df_niv['niveau_id'].unique(),
                              format_func=lambda x: f"{x} - {df_niv['niveau_txt'][ x ]}"
-    )
+                                )
 
-    return make_select_niveau
+    return sel_niveau
 
 def init_event():
     base_event = {

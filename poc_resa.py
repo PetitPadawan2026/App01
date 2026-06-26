@@ -228,7 +228,7 @@ def charger_excel():
      #   st.write(sel_niveau)
       #  st.write(df_niv['niveau_txt'][ sel_niveau ])
 
-    if st.button("add event 2"):
+    if st.button("Reserver"):
         nouveau_cours={
             'cours_id':99,
             'cours_date':'2026-06-25 00:00:00',

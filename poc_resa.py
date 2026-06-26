@@ -362,8 +362,8 @@ if st.button("Reserver"):
     nouveau_cours={
         'cours_id':booked_event["title"],
         'cours_date':booked_event["start"],
-        'cours_heure_debut':time.strptime(booked_event["start"], '%Y-%m-%d %H:%M:%S'),
-        'cours_heure_fin':time.strptime(booked_event["end"], '%Y-%m-%d %H:%M:%S'),
+        'cours_heure_debut':booked_event["start"], #time.strptime(booked_event["start"], '%Y-%m-%d %H:%M:%S'),
+        'cours_heure_fin':booked_event["end"], #time.strptime(booked_event["end"], '%Y-%m-%d %H:%M:%S'),
         'cours_niveau':10, #booked_event["niveau"],
         'cours_capacite':3
     }
@@ -374,8 +374,10 @@ if st.button("Reserver"):
 
     nouveau_event={
         "title":f"Event {nouveau_cours['cours_id']}",
-        "start":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_debut']),
-        "end":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_fin']),
+        "start":nouveau_cours['cours_heure_debut'],
+        "end":nouveau_cours['cours_heure_fin'],
+        #"start":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_debut']),
+        #"end":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_fin']),
         "resourceId":"a"
         }
 

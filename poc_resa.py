@@ -364,7 +364,7 @@ if st.button("Reserver"):
         'cours_date':booked_event["start"],
         'cours_heure_debut':booked_event["start"],
         'cours_heure_fin':booked_event["end"],
-        'cours_niveau':booked_event["niveau"],
+        'cours_niveau':10, #booked_event["niveau"],
         'cours_capacite':3
     }
 

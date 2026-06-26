@@ -387,6 +387,7 @@ def test_local():
 with st.expander("Demo"):
     st.write(f"x={x}")
     test_x()
+    st.write(f"x={x}")
     test_local()
     st.write(f"x={x}")
 

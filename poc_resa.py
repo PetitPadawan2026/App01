@@ -359,3 +359,4 @@ if st.button("Sélectionner un cours"):
 charger_excel()
 
 df_xls
+df_xls["DataFrame"][1] #=df_par

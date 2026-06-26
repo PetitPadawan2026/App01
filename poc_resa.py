@@ -283,6 +283,7 @@ def calc_heure_fin(heure_debut):
     heure_fin = heure_debut + timedelta(minutes=time_gap)
     return heure_fin
 
+x = datetime.datetime.now()
 in_hour = a=datetime.datetime(x.year, x.month, x.day, x.hour,0 if x.minute<30 else 30)
 
 @st.dialog("Choisissez")

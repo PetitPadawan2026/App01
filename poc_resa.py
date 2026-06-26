@@ -287,7 +287,7 @@ def calc_heure_fin(heure_debut):
 def book_event():
     st.write(f"Parent sélectionné: {st.session_state.sel_parent}")
     in_name = st.text_input("Nom de l'élève")
-    in_date = st.datetime_input("Date")
+    in_date = st.datetime_input("Date", value="now", min_value="now", step=3600)
     in_niveau = make_select_niveau()
     in_parent = st.session_state.sel_parent
 

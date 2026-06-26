@@ -303,6 +303,12 @@ def book_event():
     in_title = make_select_niveau()
     #in_title = make_select_niveau("Niveau")
 
+@st.dialog("Choisissez")
+def parent_event():
+    in_name_par = st.text_input("Nom du parent")
+    in_name_enf = st.text_input("Nom de l'enfant")
+
+
     erreurs = []
 
     # Vérifications des champs obligatoires
@@ -339,7 +345,7 @@ if st.session_state.book_event is not None:
     st.dataframe(st.session_state.book_event)
 
 if st.button("Sélectionner un parent"):
-    cols_par('')
+    parent_event()
 
 if st.button("Sélectionner un cours"):
     book_event()

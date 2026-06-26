@@ -326,7 +326,7 @@ def book_event():
                                             pd.Series(ret_event).to_frame().T], 
                                             ignore_index=True)
 
-            #st.rerun()
+            st.rerun()
  
     with col3:
         if st.button("Annuler"):
@@ -341,8 +341,7 @@ if st.button("Sélectionner un parent"):
     st.session_state.sel_parent=None
     df=get_df(1)
     sel_parent = st.selectbox ("Parent:", options=df['parent_id'].unique() )
-    if sel_parent:
-        st.session_state.sel_parent=sel_parent
+    st.session_state.sel_parent=sel_parent
 
 if st.button("Sélectionner un cours"):
     book_event()

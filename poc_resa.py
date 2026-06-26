@@ -365,4 +365,4 @@ if st.button("Sélectionner un cours"):
 # Données via Excel
 charger_excel()
 
-df_xls["DataFrame"][0]
+df_xls["DataFrame"][1]

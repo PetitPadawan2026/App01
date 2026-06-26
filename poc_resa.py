@@ -261,7 +261,7 @@ def charger_excel():
 #                    format_func=lambda x:calendar_display[ x ]
 #                    )
 
-def get_df(id=0):
+def get_df_old(id=0):
     try:
         #st.dataframe(df)
         df = df_xls["DataFrame"][id].copy(deep=True)
@@ -270,6 +270,13 @@ def get_df(id=0):
         st.write(f'Erreur get_df pour {id}')
         return None
 
+def get_df(id=0):
+    try:
+        data_values=get_df(id,False)       
+        return data_values
+    except:
+        st.write(f'Erreur get_df pour {id}')
+        return None
 # ===============================================================================================================
 # Form 1
 

@@ -264,8 +264,8 @@ def charger_excel():
 def get_df(id=0):
     try:
         #st.dataframe(df)
-        df_xls["DataFrame"][id]
-        return df_xls["DataFrame"][id]
+        df = df_xls["DataFrame"][id].copy(deep=True)
+        return df
     except:
         st.write(f'Erreur get_df pour {id}')
         return None

@@ -33,6 +33,7 @@ pages ={
   st.Page("calendar.py", title="Calendrier", icon="📅"),
   st.Page("dialog.py", title="Dialogue", icon="📋"),
   st.Page("resa.py", title="Reservation", icon="📝"),
+  st.Page("poc_resa.py", title="Calendrier 2", icon="📝"),
  ] 
 }
 

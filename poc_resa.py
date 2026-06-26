@@ -211,10 +211,10 @@ def date_time_to_datetime(date_in,time_in):
     return c #ret_val #ret_val.strftime("%Y-%m-%d %H:%M:%S")
 
 def charger_excel():
-    df_niv=get_df_idx(0,True)
-    df_par=get_df_idx(1,True)
-    df_enf=get_df_idx(2,True) 
-    df_cours=get_df_idx(3,True)   
+    df_niv=get_df_idx(0,False)
+    df_par=get_df_idx(1,False)
+    df_enf=get_df_idx(2,False) 
+    df_cours=get_df_idx(3,False)   
 
     df_cours = df_cours.dropna()
     
@@ -263,6 +263,8 @@ def charger_excel():
 
 def get_df(id=0):
     try:
+        #st.dataframe(df)
+        df_xls["DataFrame"][0]
         return df_xls["DataFrame"][0]
     except:
         return None
@@ -362,5 +364,3 @@ if st.button("Sélectionner un cours"):
 # Données via Excel
 charger_excel()
 
-df_xls
-df_xls["DataFrame"][1] #=df_par

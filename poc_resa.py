@@ -20,6 +20,15 @@ ret_event = {}
 if "book_event" not in st.session_state:
     st.session_state.book_event=None
 
+if "var_demo" not in st.session_state:
+    st.session_state.var_demo=None
+    st.session_state["var_demo"]=None    
+
+def init_var(varname="var_demo"):    
+    if varname not in st.session_state:
+        st.session_state[varname]=None  
+init_var("var_demo")
+
 if not st.session_state.get("calendar", False):
         st.session_state["calendar"] = str(uuid.uuid4())
 

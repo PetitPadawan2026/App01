@@ -274,6 +274,7 @@ def make_select_niveau(txt_label="Test"):
         #label_visibility="hidden" if txt_label == "Test" else "visible"
     #)
     df=get_df(0)
+    df
     sel_niveau = st.selectbox(txt_label ="Test",
                              options=df['niveau_id'].unique(),
                              format_func=lambda x: f"{x} - {df['niveau_txt'][ x ]}"

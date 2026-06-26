@@ -18,16 +18,33 @@ import random
 # Variables de session
 ret_event = {}
 if "book_event" not in st.session_state:
-    st.session_state.book_event=None
+    st.session_state.book_event=None 
 
-if "var_demo" not in st.session_state:
-    st.session_state.var_demo=None
-    st.session_state["var_demo"]=None    
-
-def init_var(varname="var_demo"):    
+def ssvar_init(varname="var_demo"):    
     if varname not in st.session_state:
         st.session_state[varname]=None  
-init_var("var_demo")
+
+def ssvar_get(varname="var_demo"):
+    ssvar_init(varname)
+    return st.session_state[varname]
+
+def ssvar_set(varname="var_demo",value=None):
+    ssvar_init(varname)
+    st.session_state[varname]=value
+
+def ssvar_del(varname="var_demo"):        
+    try:
+        del st.session_state[varname]
+    except:
+        pass
+
+var_name="var_demo"
+ssvar_set(var_name,"hello")
+if st.button("Test var"):
+    st.write(ssvar_get(var_name))
+if st.button("Update var"):
+    st.write(ssvar_set(var_name,"Coucou"))
+
 
 if not st.session_state.get("calendar", False):
         st.session_state["calendar"] = str(uuid.uuid4())

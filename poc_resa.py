@@ -273,9 +273,10 @@ def make_select_niveau(txt_label="Test"):
         #("Tous Niveaux ", "Niveau 1 ", "Niveau 2 ", "Niveau 3 ", "Niveau 4 ", "Niveau 5 ", "Niveau 6 ", "Niveau 7 ", "Niveau 8 ", "Niveau 9 ", "Niveau 10 ", "Niveau 11 ", "Niveau 12 "),
         #label_visibility="hidden" if txt_label == "Test" else "visible"
     #)
+    df=get_df(0)
     sel_niveau = st.selectbox(txt_label ="Test",
-                             options=df_niv['niveau_id'].unique(),
-                             format_func=lambda x: f"{x} - {df_niv['niveau_txt'][ x ]}"
+                             options=df['niveau_id'].unique(),
+                             format_func=lambda x: f"{x} - {df['niveau_txt'][ x ]}"
                              )
 
     return sel_niveau
@@ -303,6 +304,7 @@ def calc_heure_fin(heure_debut):
 
 @st.dialog("Choisissez")
 def book_event():
+    st.write(f"Parent sélectionné: {st.session_state.sel_parent}")
     in_name = st.text_input("Nom de l'élève")
     in_date = st.datetime_input("Date")
     in_niveau = make_select_niveau()

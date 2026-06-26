@@ -40,7 +40,7 @@ if "sel_niveau" not in st.session_state:
 # ===============================================================================================================
 # Options / params calendrier
 def build_event(titre,debut,fin,ressource="a"):
-    event_to_add = { "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-06-23T14:30:00", "resourceId": "a2", }
+    event_to_add = {"allDay": False, "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-06-23T14:30:00", "resourceId": "a2", }
     event_to_add["title"]=titre
     event_to_add["start"]=debut
     event_to_add["end"]=fin
@@ -258,11 +258,12 @@ def charger_excel():
             "resourceId":"a"
             }
 
-        st.session_state.updated_events=pd.concat([
-                                        pd.DataFrame(st.session_state.calendar_events), 
-                                        pd.Series(nouveau_event).to_frame().T], 
-                                        ignore_index=True)
-        st.rerun()
+        if 1 == 2:
+            st.session_state.updated_events=pd.concat([
+                                            pd.DataFrame(st.session_state.calendar_events), 
+                                            pd.Series(nouveau_event).to_frame().T], 
+                                            ignore_index=True)
+            st.rerun()
 
 def get_df(id=0):
     try:
@@ -273,8 +274,6 @@ def get_df(id=0):
         return None
 # ===============================================================================================================
 # Form 1
-
-
 def make_select_niveau(txt_label="Test"):
     #return st.selectbox(
         #txt_label,
@@ -346,7 +345,7 @@ def book_event():
                 "end": str(calc_heure_fin(in_date)),
                 "resourceId": "a2"
             }
-
+            ret_event = build_event(in_name,str(in_date),str(calc_heure_fin(in_date)),"a")
             st.session_state.book_event=ret_event
             st.session_state.updated_events=pd.concat([
                                             pd.DataFrame(st.session_state.calendar_events), 

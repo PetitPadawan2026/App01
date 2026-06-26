@@ -341,13 +341,17 @@ def book_event():
 
             ret_event = {
                 "allDay": False,
-                "title": "Cours démo",
+                "title": st.session_state.sel_enfant,
                 "start": str(in_date),   
                 "end": str(calc_heure_fin(in_date)),
                 "resourceId":in_name
             }
 
             st.session_state.book_event=ret_event
+            st.session_state.updated_events=pd.concat([
+                                            pd.DataFrame(st.session_state.calendar_events), 
+                                            pd.Series(ret_event).to_frame().T], 
+                                            ignore_index=True)
 
             st.rerun()
  
@@ -373,24 +377,3 @@ if st.button("Sélectionner un cours"):
 # ===============================================================================================================
 # Données via Excel
 charger_excel()
-
-# Demo
-x = "initial"
-
-def test_x():
-    global x
-    x = "maj test_x"
-    st.write(f"x={x}")
-
-def test_local():
-    x = "local"
-    st.write(f"x={x}")
-
-with st.expander("Demo"):
-    st.write(f"x={x}")
-    test_x()
-    st.write(f"x={x}")
-    test_local()
-    st.write(f"x={x}")
-
-

@@ -220,13 +220,13 @@ def charger_excel():
     
     nouveau_cours={}
 
-    sel_niveau = st.selectbox ("Niveau:",
-                              options=df_niv['niveau_id'].unique(),
-                              format_func=lambda x: f"{x} - {df_niv['niveau_txt'][ x ]}"
-                              )
-    if sel_niveau:
-        st.write(sel_niveau)
-        st.write(df_niv['niveau_txt'][ sel_niveau ])
+   # sel_niveau = st.selectbox ("Niveau:",
+    #                          options=df_niv['niveau_id'].unique(),
+     #                         format_func=lambda x: f"{x} - {df_niv['niveau_txt'][ x ]}"
+      #                        )
+    #if sel_niveau:
+     #   st.write(sel_niveau)
+      #  st.write(df_niv['niveau_txt'][ sel_niveau ])
 
     if st.button("add event 2"):
         nouveau_cours={

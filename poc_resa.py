@@ -354,7 +354,7 @@ if st.button("Sélectionner un parent"):
     df
     sel_parent = st.selectbox ("Parent:",
                              options=df['parent_id'].unique(),
-                             #format_func=lambda x: f"{x} - {df['parent_nom'][ x ]}"
+                             format_func=lambda x: f"{df['parent_nom'][ x ]}"
                               )
 
 if st.button("Sélectionner un cours"):

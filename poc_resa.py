@@ -31,6 +31,12 @@ excel_loaded=False
 if "sel_parent" not in st.session_state:
     st.session_state.sel_parent=None
 
+if "sel_enfant" not in st.session_state:
+    st.session_state.sel_enfant=None
+
+if "sel_niveau" not in st.session_state:
+    st.session_state.sel_niveau=None
+
 # ===============================================================================================================
 # Options / params calendrier
 def build_event(titre,debut,fin,ressource="a"):
@@ -274,7 +280,6 @@ def make_select_niveau(txt_label="Test"):
         #label_visibility="hidden" if txt_label == "Test" else "visible"
     #)
     df=get_df(0)
-    df
     sel_niveau = st.selectbox(label ="Niveau",
                              options=df['niveau_id'].unique(),
                              format_func=lambda x: f"{x} - {df['niveau_txt'][ x ]}"
@@ -302,6 +307,7 @@ def calc_heure_fin(heure_debut):
     heure_fin = heure_debut
     time_gap = 45 #minutes
     heure_fin = heure_debut + timedelta(minutes=time_gap)
+    return heure_fin
 
 @st.dialog("Choisissez")
 def book_event():
@@ -318,12 +324,19 @@ def book_event():
         erreurs.append("Le Nom de l'élève est obligatoire.")
         st.toast("Le Nom est obligatoire", icon="❗")
         time.sleep(0.5)
+    else:
+        st.session_state.sel_enfant=in_name
 
     col1, col2, col3 = st.columns(3)
 
     with col1:
         if st.button("Ok"):
             ret_event = init_event()
+
+            st.session_state.sel_parent=in_parent
+            st.session_state.sel_enfant=in_name
+            st.session_state.sel_niveau=in_niveau
+
             ret_event = {
                 "allDay": False,
                 "title": "Cours démo",
@@ -348,7 +361,6 @@ if st.session_state.book_event is not None:
 if st.button("Sélectionner un parent"):
     st.session_state.sel_parent=None
     df=get_df(1)
-    df
     sel_parent = st.selectbox ("Parent:", options=df['parent_id'].unique() )
     if sel_parent:
         st.session_state.sel_parent=sel_parent

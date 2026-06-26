@@ -222,7 +222,7 @@ def date_time_to_datetime(date_in,time_in):
     return c #ret_val #ret_val.strftime("%Y-%m-%d %H:%M:%S")
 
 def charger_excel():
-    global df_xls
+    global df_xls,df_niv,df_par,df_enf,df_cours
 
     df_niv=get_df_idx(0,False)
     df_par=get_df_idx(1,False)
@@ -237,33 +237,6 @@ def charger_excel():
     df_xls["DataFrame"][1]=df_par
     df_xls["DataFrame"][2]=df_enf
     df_xls["DataFrame"][3]=df_cours
-
-    if st.button("Reserver"):
-        nouveau_cours={
-            'cours_id':'Tom',
-            'cours_date':'2026-06-25 00:00:00',
-            'cours_heure_debut':'09:00:00',
-            'cours_heure_fin':'11:45:00',
-            'cours_niveau':10,
-            'cours_capacite':3
-        }
-        new_row = pd.Series(nouveau_cours)
-        df_cours=pd.concat([df_cours, new_row.to_frame().T], ignore_index=True)
-        df_cours
-
-        nouveau_event={
-            "title":f"Event {nouveau_cours['cours_id']}",
-            "start":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_debut']),
-            "end":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_fin']),
-            "resourceId":"a"
-            }
-
-        if 1 == 2:
-            st.session_state.updated_events=pd.concat([
-                                            pd.DataFrame(st.session_state.calendar_events), 
-                                            pd.Series(nouveau_event).to_frame().T], 
-                                            ignore_index=True)
-            st.rerun()
 
 def get_df(id=0):
     try:
@@ -343,7 +316,8 @@ def book_event():
                 "title": st.session_state.sel_enfant, #in_name
                 "start": str(in_date),   
                 "end": str(calc_heure_fin(in_date)),
-                "resourceId": "a2"
+                "resourceId": "a2",
+                "niveau":in_niveau
             }
             ret_event = build_event(in_name,str(in_date),str(calc_heure_fin(in_date)),"a")
             st.session_state.book_event=ret_event
@@ -352,7 +326,7 @@ def book_event():
                                             pd.Series(ret_event).to_frame().T], 
                                             ignore_index=True)
 
-            st.rerun()
+            #st.rerun()
  
     with col3:
         if st.button("Annuler"):
@@ -372,6 +346,44 @@ if st.button("Sélectionner un parent"):
 
 if st.button("Sélectionner un cours"):
     book_event()
+
+if st.button("Reserver"):
+    nouveau_cours={
+        'cours_id':'Tom',
+        'cours_date':'2026-06-25 00:00:00',
+        'cours_heure_debut':'09:00:00',
+        'cours_heure_fin':'11:45:00',
+        'cours_niveau':10,
+        'cours_capacite':3
+    }
+
+    booked_event = st.session_state.book_event
+    nouveau_cours={
+        'cours_id':booked_event["title"],
+        'cours_date':booked_event["start"],
+        'cours_heure_debut':booked_event["start"],
+        'cours_heure_fin':booked_event["end"],
+        'cours_niveau':booked_event["niveau"],
+        'cours_capacite':3
+    }
+
+    new_row = pd.Series(nouveau_cours)
+    df_cours=pd.concat([df_cours, new_row.to_frame().T], ignore_index=True)
+    df_cours
+
+    nouveau_event={
+        "title":f"Event {nouveau_cours['cours_id']}",
+        "start":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_debut']),
+        "end":date_time_to_datetime(nouveau_cours['cours_date'], nouveau_cours['cours_heure_fin']),
+        "resourceId":"a"
+        }
+
+    if 1 == 2:
+        st.session_state.updated_events=pd.concat([
+                                        pd.DataFrame(st.session_state.calendar_events), 
+                                        pd.Series(nouveau_event).to_frame().T], 
+                                        ignore_index=True)
+        st.rerun()
 
 # ===============================================================================================================
 # Données via Excel

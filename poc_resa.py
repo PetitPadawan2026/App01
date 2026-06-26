@@ -295,7 +295,12 @@ def calc_heure_fin(heure_debut):
     time_gap = 45 #minutes
     heure_fin = heure_debut + timedelta(minutes=time_gap)
 
+@st.dialog("Choisissez")
+def parent_event():
+    in_name_par = st.text_input("Nom du parent")
+    in_name_enf = st.text_input("Nom de l'enfant")
 
+    
 @st.dialog("Choisissez")
 def book_event():
     in_name = st.text_input("Nom de l'élève")
@@ -303,10 +308,7 @@ def book_event():
     in_title = make_select_niveau()
     #in_title = make_select_niveau("Niveau")
 
-@st.dialog("Choisissez")
-def parent_event():
-    in_name_par = st.text_input("Nom du parent")
-    in_name_enf = st.text_input("Nom de l'enfant")
+
 
 
     erreurs = []

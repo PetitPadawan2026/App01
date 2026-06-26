@@ -261,8 +261,11 @@ def charger_excel():
 #                    format_func=lambda x:calendar_display[ x ]
 #                    )
 
-
-
+def get_df(id=0):
+    try:
+        return df_xls["DataFrame"][0]
+    except:
+        return None
 
 # ===============================================================================================================
 # Form 1
@@ -346,9 +349,10 @@ if st.session_state.book_event is not None:
     st.dataframe(st.session_state.book_event)
 
 if st.button("Sélectionner un parent"):
+    df=get_df(1)
     sel_parent = st.selectbox ("Parent:",
-                             options=df_par['parent_id'].unique(),
-                             format_func=lambda x: f"{x} - {df_par['parent_nom'][ x ]}"
+                             options=df['parent_id'].unique(),
+                             format_func=lambda x: f"{x} - {df['parent_nom'][ x ]}"
                               )
 
 if st.button("Sélectionner un cours"):

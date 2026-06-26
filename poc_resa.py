@@ -27,6 +27,11 @@ local_xls='./data/data_app.xlsx'
 excel_loaded=False
 
 # ===============================================================================================================
+# Sélections
+if "sel_parent" not in st.session_state:
+    st.session_state.sel_parent=None
+
+# ===============================================================================================================
 # Options / params calendrier
 def build_event(titre,debut,fin,ressource="a"):
     event_to_add = { "title": "Test", "start": "2026-06-23T12:40:00", "end": "2026-06-23T14:30:00", "resourceId": "a2", }
@@ -224,11 +229,6 @@ def charger_excel():
     df_xls["DataFrame"][1]=df_par
     df_xls["DataFrame"][2]=df_enf
     df_xls["DataFrame"][3]=df_cours
-    
-
-    #if sel_niveau:
-     #   st.write(sel_niveau)
-      #  st.write(df_niv['niveau_txt'][ sel_niveau ])
 
     if st.button("Reserver"):
         nouveau_cours={
@@ -256,11 +256,6 @@ def charger_excel():
                                         ignore_index=True)
         st.rerun()
 
-#sel_niveau = st.selectbox("Niveau:", 
-#                    options=list(calendar_display.keys()), 
-#                    format_func=lambda x:calendar_display[ x ]
-#                    )
-
 def get_df(id=0):
     try:
         data_values=get_df_idx(id,False)       
@@ -281,7 +276,7 @@ def make_select_niveau(txt_label="Test"):
     sel_niveau = st.selectbox(txt_label ="Test",
                              options=df_niv['niveau_id'].unique(),
                              format_func=lambda x: f"{x} - {df_niv['niveau_txt'][ x ]}"
-                                )
+                             )
 
     return sel_niveau
 
@@ -310,9 +305,8 @@ def calc_heure_fin(heure_debut):
 def book_event():
     in_name = st.text_input("Nom de l'élève")
     in_date = st.datetime_input("Date")
-    in_title = make_select_niveau()
-    #in_title = make_select_niveau("Niveau")
-
+    in_niveau = make_select_niveau()
+    in_parent = st.session_state.sel_parent
 
     erreurs = []
 
@@ -321,7 +315,6 @@ def book_event():
         erreurs.append("Le Nom de l'élève est obligatoire.")
         st.toast("Le Nom est obligatoire", icon="❗")
         time.sleep(0.5)
-
 
     col1, col2, col3 = st.columns(3)
 
@@ -350,12 +343,12 @@ if st.session_state.book_event is not None:
     st.dataframe(st.session_state.book_event)
 
 if st.button("Sélectionner un parent"):
+    st.session_state.sel_parent=None
     df=get_df(1)
     df
-    sel_parent = st.selectbox ("Parent:",
-                             options=df['parent_id'].unique(),
-                             format_func=lambda x: f"{df['parent_nom'][ x ]}"
-                              )
+    sel_parent = st.selectbox ("Parent:", options=df['parent_id'].unique() )
+    if sel_parent:
+        st.session_state.sel_parent=sel_parent
 
 if st.button("Sélectionner un cours"):
     book_event()
@@ -363,5 +356,3 @@ if st.button("Sélectionner un cours"):
 # ===============================================================================================================
 # Données via Excel
 charger_excel()
-
-df_xls["DataFrame"][1]

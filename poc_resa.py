@@ -220,12 +220,12 @@ def charger_excel():
     
     nouveau_cours={}
 
-    df_xls["DataFrame"][0]=df_niv
+    df_xls["DataFrame"][0]=st.dataframe(df_niv)
     df_xls["DataFrame"][1]=df_par
     df_xls["DataFrame"][2]=df_enf
     df_xls["DataFrame"][3]=df_cours
     df_xls
-    
+
     #if sel_niveau:
      #   st.write(sel_niveau)
       #  st.write(df_niv['niveau_txt'][ sel_niveau ])

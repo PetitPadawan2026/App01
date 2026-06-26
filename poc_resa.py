@@ -31,6 +31,7 @@ def ssvar_get(varname="var_demo"):
 def ssvar_set(varname="var_demo",value=None):
     ssvar_init(varname)
     st.session_state[varname]=value
+    return ssvar_get(varname)
 
 def ssvar_del(varname="var_demo"):        
     try:

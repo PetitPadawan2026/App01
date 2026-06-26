@@ -342,7 +342,8 @@ if st.button("Sélectionner un parent"):
     df=get_df(1)
     sel_parent = st.selectbox ("Parent:", options=df['parent_id'].unique() )
     st.session_state.sel_parent=sel_parent
-    st.write(f"Parent sélectionné: {st.session_state.sel_parent}")
+    
+st.write(f"Parent sélectionné: {st.session_state.sel_parent}")
 
 if st.button("Sélectionner un cours"):
     book_event()

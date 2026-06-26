@@ -283,14 +283,13 @@ def calc_heure_fin(heure_debut):
     heure_fin = heure_debut + timedelta(minutes=time_gap)
     return heure_fin
 
+in_hour = a=datetime.datetime(x.year, x.month, x.day, x.hour,0 if x.minute<30 else 30)
+
 @st.dialog("Choisissez")
 def book_event():
     st.write(f"Parent sélectionné: {st.session_state.sel_parent}")
     in_name = st.text_input("Nom de l'élève")
-    in_date = st.datetime_input("Date", value=' x.hour':
-                                if x.minute<30 else 30  step=1800)
-    #a=datetime.datetime(x.year, x.month, x.day, x.hour,0 if x.minute<30 else 30)
-    #print(a)
+    in_date = st.datetime_input("Date", value="in_hour", min_value="in_hour", step=1800)
     in_niveau = make_select_niveau()
     in_parent = st.session_state.sel_parent
 

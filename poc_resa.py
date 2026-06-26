@@ -341,10 +341,10 @@ def book_event():
 
             ret_event = {
                 "allDay": False,
-                "title": st.session_state.sel_enfant,
+                "title": st.session_state.sel_enfant, #in_name
                 "start": str(in_date),   
                 "end": str(calc_heure_fin(in_date)),
-                "resourceId":in_name
+                "resourceId": "a2"
             }
 
             st.session_state.book_event=ret_event

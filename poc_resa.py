@@ -334,7 +334,7 @@ def parent_event():
             st.session_state.book_event=ret_event
 
             st.rerun()
-
+ 
     with col3:
         if st.button("Annuler"):
             st.session_state.book_event=None

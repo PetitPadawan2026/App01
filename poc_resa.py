@@ -220,10 +220,7 @@ def charger_excel():
     
     nouveau_cours={}
 
-   # sel_niveau = st.selectbox ("Niveau:",
-    #                          options=df_niv['niveau_id'].unique(),
-     #                         format_func=lambda x: f"{x} - {df_niv['niveau_txt'][ x ]}"
-      #                        )
+
     #if sel_niveau:
      #   st.write(sel_niveau)
       #  st.write(df_niv['niveau_txt'][ sel_niveau ])
@@ -272,7 +269,12 @@ def make_select_niveau(txt_label="Test"):
         ("Tous Niveaux ", "Niveau 1 ", "Niveau 2 ", "Niveau 3 ", "Niveau 4 ", "Niveau 5 ", "Niveau 6 ", "Niveau 7 ", "Niveau 8 ", "Niveau 9 ", "Niveau 10 ", "Niveau 11 ", "Niveau 12 "),
         label_visibility="hidden" if txt_label == "Test" else "visible"
     )
+    sel_niveau = st.selectbox( txt_label ="Test":
+                             options=df_niv['niveau_id'].unique(),
+                             format_func=lambda x: f"{x} - {df_niv['niveau_txt'][ x ]}"
+    )
 
+    return make_select_niveau
 
 def init_event():
     base_event = {
@@ -296,19 +298,11 @@ def calc_heure_fin(heure_debut):
     heure_fin = heure_debut + timedelta(minutes=time_gap)
 
 @st.dialog("Choisissez")
-def parent_event():
-    in_name_par = st.text_input("Nom du parent")
-    in_name_enf = st.text_input("Nom de l'enfant")
-
-    
-@st.dialog("Choisissez")
 def book_event():
     in_name = st.text_input("Nom de l'élève")
     in_date = st.datetime_input("Date")
     in_title = make_select_niveau()
     #in_title = make_select_niveau("Niveau")
-
-
 
 
     erreurs = []
@@ -347,7 +341,10 @@ if st.session_state.book_event is not None:
     st.dataframe(st.session_state.book_event)
 
 if st.button("Sélectionner un parent"):
-    parent_event()
+    sel_parent = st.selectbox ("Parent:",
+                             options=df_par['parent_id'].unique(),
+                             format_func=lambda x: f"{x} - {df_par['parent_nom'][ x ]}"
+                              )
 
 if st.button("Sélectionner un cours"):
     book_event()
@@ -355,43 +352,4 @@ if st.button("Sélectionner un cours"):
 # ===============================================================================================================
 # Données via Excel
 charger_excel()
-
-# ===============================================================================================================
-#base de donnée - Début
-sql_conn = None
-cxn_status = False
-
-def show_table(tabname):
-    if st.session_state["sql_conn"] is not None:
-        query = "SELECT * FROM " + tabname
-        df = pd.read_sql(query, st.session_state["sql_conn"])
-        return st.dataframe(df)
-if 1 == 2:
-    with st.spinner("Connecting database...", show_time=True):
-        try:
-            sql_conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+st.secrets["Server"]+';DATABASE='+st.secrets["Database"]+';Uid='+st.secrets["Uid"]+';Pwd='+st.secrets["Pwd"])
-            #;Trusted_Connection=yes'
-            cxn_status = True
-            st.session_state["sql_conn"] = sql_conn
-        except pyodbc.Error as ex:
-            st.error('Database unreachable', icon="🚨")
-            cxn_status = False
-            st.session_state["sql_conn"] = None
-
-    if cxn_status:
-        query = "SELECT * FROM t_niveau"
-        df = pd.read_sql(query, sql_conn)
-        st.dataframe(df)
-
-        st.write(df)
-
-    #options = st.selectbox(
-    #"Données de la base"
-    #(df)
-    #)
-
-    show_table('t_parent')
-
-#base de donnée - Fin
-# ===============================================================================================================
 
